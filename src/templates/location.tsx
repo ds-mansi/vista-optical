@@ -156,7 +156,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Vista Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -196,7 +196,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Vista Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -244,7 +244,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+              : `Find the ${document.name} Vista Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
