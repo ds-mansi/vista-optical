@@ -533,6 +533,9 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .social-media-bx li a{@apply transform transition-all duration-300 scale-100 hover:scale-105 inline-block}
 .company-logo svg{ @apply mr-0  mt-5 w-[166px] h-[70px] }
 .locator-main .result{ @apply border-l-4 border-l-white}
+.locator-main{
+  min-height: 100vh;
+}
 
 .locator-main .result.active{@apply border-l-4 border-l-hover-border}
 .locator-main .result.fixed-hover.active{@apply border-l-4 border-l-red}
