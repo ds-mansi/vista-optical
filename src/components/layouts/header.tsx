@@ -73,6 +73,8 @@ const Header = (props: any) => {
                 fontSize: "14px",
                 padding: "5px 15px",
                 paddingRight: "40px",
+                borderTopLeftRadius: "4px",
+                borderBottomLeftRadius: "4px",
               }}
             />
             <a href={props._site.c_storeHead.link}>
@@ -84,6 +86,8 @@ const Header = (props: any) => {
                   padding: "7px 15px",
                   fontSize: "13px",
                   marginRight: "15px",
+                  borderTopRightRadius: "4px",
+                  borderBottomRightRadius: "4px",
                 }}
               >
                 {props._site.c_storeHead.label}
@@ -97,6 +101,7 @@ const Header = (props: any) => {
                   fontWeight: "bold",
                   padding: "7px",
                   fontSize: "13px",
+                  borderRadius:"4px"
                 }}
               >
                 {props._site.c_examCta.label}
