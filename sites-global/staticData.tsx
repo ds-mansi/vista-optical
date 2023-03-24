@@ -5,7 +5,7 @@ export const StaticData = {
     FindLocationtext:"Find a Location",
     Usemylocation:"Use my location",
     Search:"Search",
-    Brandname:"MGM Timber",
+    Brandname:"Vista Optical",
     miles:"miles",
     tempClosed:"Temporarily Closed",
     StoreDetailbtn:"View Store Detail",
