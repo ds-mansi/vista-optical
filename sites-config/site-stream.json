@@ -5,11 +5,22 @@
   },
   "source": "knowledgeGraph",
   "fields": [
-      "name"
-
+      "name",
+      "c_logo",
+      "c_upperHeaderText",
+      "c_searchHeading",
+      "c_headerNavbar",
+      "c_examCta",
+      "c_banner",
+      "c_footerMainHeading",
+      "c_footerNavbarHeading",
+      "c_footerNav",
+      "c_footerTAndC",
+      "c_footerRights",
+      "c_storeHead"
   ],
   "localization": {
-    "locales": ["en_GB"],
+    "locales": ["en"],
     "primary": false
   }
 }

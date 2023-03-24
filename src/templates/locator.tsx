@@ -23,6 +23,8 @@ import {
   AnalyticsScopeProvider,
 } from "@yext/pages/components";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
+import Header from "../components/layouts/header";
+import Footer from "../components/layouts/footer";
 
 export const config: TemplateConfig = {
   stream: {
@@ -39,7 +41,7 @@ export const config: TemplateConfig = {
     },
     // The entity language profiles that documents will be generated for.
     localization: {
-      locales: ["en_GB"],
+      locales: ["en"],
       primary: false,
     },
   },
@@ -94,7 +96,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
        attributes: {
          rel: "canonical",
          href: `${
-           document._site.c_canonical?document.c_canonical:stagingBaseurl
+           "#"
             
          }`,
        },
@@ -193,7 +195,12 @@ const Locator: Template<TemplateRenderProps>= ({
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-      <PageLayout global={_site}>
+        <Header
+            _site={_site}
+            logo={_site.c_logo}
+            nav={_site.c_headerNavbar}
+          />
+          <PageLayout global={_site} banner={_site.c_banner} />
         <SearchHeadlessProvider
           experienceKey={AnswerExperienceConfig.experienceKey}
           locale={AnswerExperienceConfig.locale}
@@ -209,7 +216,13 @@ const Locator: Template<TemplateRenderProps>= ({
         </SearchHeadlessProvider>
       
    
-      </PageLayout>
+        <Footer
+            _site={_site}
+            fheading={_site.c_footerNavbarHeading}
+            fnav={_site.c_footerNav}
+            tandc={_site.c_footerTAndC}
+          
+          />
       </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>

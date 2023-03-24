@@ -1,10 +1,9 @@
 import * as React from "react";
-import gallerybg from "../../images/faq-bg.png"
+import gallerybg from "../../images/faq-bg.png";
 
 import { useState, useEffect } from "react";
 import AccordionItem from "./AccordianItem";
 import { StaticData } from "../../../sites-global/staticData";
-
 
 export default function Faq(props: any) {
   const [current, setCurrent] = useState("");
@@ -35,38 +34,42 @@ export default function Faq(props: any) {
   function setclass(e: any) {
     setCurrent(e.target.id);
   }
-  const renderedQuestionsAnswers = props.faqs.map((item: any, index: Number) => {
-    const showDescription = index === activeIndex ? "current" : "hidden";
-    const background = index === activeIndex ? "active" : "";
-    const fontWeightBold = index === activeIndex ? " font-weight-bold  py-0 mt-2" : "";
-    const ariaExpanded = index === activeIndex ? "true" : "false";
-    return (
-      <AccordionItem
-        showDescription={showDescription}
-        fontWeightBold={fontWeightBold}
-        ariaExpanded={ariaExpanded}
-        background={background}
-        item={item}
-        index={index}
-        onClick={() => {
-          setActiveIndex(index);
-        }}
-      />
-    );
-  });
+  const renderedQuestionsAnswers = props.faqs.map(
+    (item: any, index: Number) => {
+      const showDescription = index === activeIndex ? "current" : "hidden";
+      const background = index === activeIndex ? "active" : "";
+      const fontWeightBold =
+        index === activeIndex ? " font-weight-bold  py-0 mt-2" : "";
+      const ariaExpanded = index === activeIndex ? "true" : "false";
+      return (
+        <AccordionItem
+          showDescription={showDescription}
+          fontWeightBold={fontWeightBold}
+          ariaExpanded={ariaExpanded}
+          background={background}
+          item={item}
+          index="0"
+          onClick={() => {
+            setActiveIndex(index);
+          }}
+        />
+      );
+    }
+  );
 
   return (
     <>
       <div className=" faq-main-sec">
-
         <div className=" faq-card ">
           <div className="faq-sec-inner">
-            <h2 className="">{props.c_fAQsHeading?props.c_fAQsHeading:StaticData.FAQheading}</h2>
+            <h2 className="">
+              {props.c_fAQsHeading
+                ? props.c_fAQsHeading
+                : StaticData.FAQheading}
+            </h2>
             <div className="faq-tabs">{renderedQuestionsAnswers}</div>
           </div>
         </div>
-
-
       </div>
     </>
   );

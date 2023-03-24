@@ -110,7 +110,22 @@ body.menu-opened{ @apply overflow-hidden lg:overflow-auto;}
 .hero-section .hero-content .banner-text.banner-dark-bg h3{  @apply text-xl md:text-2xl font-normal}
 .timer .box{  @apply text-base md:text-xl}
 .for-allow{  @apply inline-block w-full mb-2.5 text-red}
-
+.banner-btn{
+  background-color: #0077B4;
+  border: 1px solid white;
+  color: white;
+  padding: 10px;
+  font-size: small ;
+  margin-top: 25px;
+}
+.banner-btn:hover{
+  background-color: white;
+  border: 1px solid #0077B4;
+  color: #0077B4;
+}
+.banner-text h1{
+  color: #002C73 !important;
+}
 /* Mobile btns */
 .mobile-btns{  @apply flex md:hidden justify-between w-full mb-3.5 float-left}
 .mobile-btns .button-bx{  @apply m-0 w-full justify-between flex-row}
@@ -121,6 +136,12 @@ body:not(.mapView) .mobile-btns .btn.listBtn{  @apply text-Dark-red border-t-0 b
 .browse-dir{  @apply ml-4 md:ml-0}
 .browse-dir a{@apply hover:no-underline }
 body.mapView .mobile-btns .btn.mapBtn{  @apply text-Dark-red border-t-0 border-l-0 border-r-0 !border-b-2 !border-red  text-lg font-second-main-font !capitalize hover:bg-transparent  }
+.button-bx .btn{
+  background-color: #002C73 !important;
+}
+.button-bx .btn:hover{
+  background-color: #0077B4 !important;
+}
 
 /* left listing */
 .search-bx{@apply  mb-0  z-20 px-4 md:px-0  pt-0 pb-6 text-gray-dark float-left w-full md:w-[30rem] lg:w-[33.6875rem] border-b border-[#d8d8d8] }
@@ -301,7 +322,20 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .map-section .button-bx .btn:hover svg{@apply !fill-red }
 
 .nearby-card .green-dot svg, .nearby-card .red-dot svg{@apply order-2 ml-1 mt-1 }
-
+.nearby-card .button-bx .btn{
+  border: 1px solid #002C73 !important;
+}
+.nearby-card .button-bx .btn:hover{
+  color:#002C73;
+  background-color:white !important ;
+  border :1px solid #002C73;
+}
+.nearby-card .button-bx .btn.notHighligh{
+  color: white ;
+}
+.nearby-card .button-bx .btn.notHighligh:hover{
+  color: #002C73 !important ;
+}
 
 
 /* locator page start  */
@@ -402,7 +436,9 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 /* services sec */
 .services-sec{@apply bg-white w-full pt-8 pb-16 md:py-9 }
 .sec-title{@apply mb-4 md:mb-7}
-.sec-title h2, .sec-title h1{@apply text-center text-2xl font-second-main-font md:text-[1.75rem] text-red  }
+.sec-title h2, .sec-title h1{@apply text-center text-2xl font-second-main-font md:text-[1.75rem] text-red  ;
+  color: #002C73 !important;
+}
 .sec-title h1{@apply mb-5}
 .services-inner{@apply flex flex-wrap  }
 .services-inner .service-icon{@apply  m-0 }
@@ -442,6 +478,12 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .faq-tab-content{@apply px-4  text-lg text-black py-3 bg-opacity-25 my-3 }
 .faq-tab-label.active{ @apply justify-start }
 .view-more{  @apply text-center mt-5}
+.faq-tab .faq-tab-label:active{
+  color: #0077B4 !important;
+}
+.faq-card h2{
+  color: #002C73;
+}
 
 /* near by */
 .nearby-sec{@apply bg-transparent md:bg-light-grey w-full pt-7 pb-0 md:py-[3.75rem] }
@@ -452,7 +494,9 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .nearby-card .red-dot{ @apply !justify-start}
 .nearby-card .icon-row{ @apply pl-0}
 .nearby-card .OpenDot{ @apply  font-second-main-font  text-lg}
-.nearby-card h2 a{ @apply font-second-main-font  !text-lg text-black }
+.nearby-card h2 a{ @apply font-second-main-font  !text-lg text-[#002C73]; 
+  font-weight: bold;
+}
 .nearby-card .distance{ @apply absolute right-0 md:right-2 top-0 md:-top-0.5}
 .near-address{ @apply flex mt-2 items-start min-h-[90px]}
 .nearby-card .address { @apply text-lg }
@@ -638,4 +682,29 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
   .storelocation-openCloseTime table.day-hrs .currentDay .dayName .checked{@apply left-1}
 }
 
-
+.about-btn{
+  padding: 10px;
+  background-color: #002C73;
+  font-size: 15px;
+  color: #fff;
+  margin-top: 25px;
+}
+.about-btn:hover{
+  background-color: #fff;
+  border: 2px solid #002C73;
+  color: #002C73;
+  font-size: 15px;
+}
+.category-btn{
+  padding: 10px;
+  background-color: #002C73;
+  border: 1px solid #002C73;
+  font-size: 15px;
+  color: #fff;
+}
+.category-btn:hover{
+  background-color: #fff;
+  border: 1px solid #002C73;
+  color: #002C73;
+  font-size: 15px;
+}
