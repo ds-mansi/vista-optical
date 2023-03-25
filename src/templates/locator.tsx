@@ -141,7 +141,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
       type: "meta",
       attributes: {
         name: "twitter:title",
-        content: `${document.c_meta_title?document.c_meta_title:`Vista Optical Near Me - Find MGM Timber Branch Locator Here.`}`,
+        content: `${document.c_meta_title?document.c_meta_title:`Vista Optical Near Me - Find  Vista Optical Branch Locator Here.`}`,
       },
     },
     {
@@ -183,7 +183,7 @@ const Locator: Template<TemplateRenderProps>= ({
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "MGM ",
+          name: "Vista Optical ",
           url: stagingBaseurl,
           logo: favicon,
         }}

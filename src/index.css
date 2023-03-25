@@ -149,7 +149,10 @@ body.mapView .mobile-btns .btn.mapBtn{  @apply text-Dark-red border-t-0 border-l
 .search-bx button.useMyLocation {@apply text-dark-gray flex items-center font-second-main-font text-lg}
 .search-bx button.useMyLocation .icon{@apply mr-1.5}
 .search-field{@apply flex relative  }
-.search-bx .search-btn{@apply absolute top-0 rounded-none right-0  text-white p-2 w-12 h-12 text-center bg-red hover:bg-hover-btn}  
+.search-bx .search-btn{@apply absolute top-0 rounded-none right-0  text-white p-2 w-12 h-12 text-center bg-red hover:bg-hover-btn;
+  background-color: #002C73;
+  color: #fff;
+}  
 .search-bx .search-btn svg{ @apply mx-auto}
 .search-field input{@apply  w-full bg-white h-12 text-dark-gray placeholder:text-dark-gray  py-2 pr-20 sm:py-4 sm:pr-40 pl-4 leading-7  text-[1.0625rem] font-main-font  border border-[#8c8c8c] rounded-none }
 .location p{ @apply mr-2 absolute rounded-lg -left-4 top-[0px] sm:top-[2px] xl:top-1}
@@ -164,7 +167,12 @@ body.mapView .mobile-btns .btn.mapBtn{  @apply text-Dark-red border-t-0 border-l
 .location .button-bx{  @apply max-w-lg justify-start xl:mx-auto pl-2 flex-row lg:pl-7}
 .result-list .location{ @apply first:mt-0}
 .location .button-bx .btn{@apply w-[9.75rem] bg-Dark-red font-second-main-font text-lg  border-none text-white    }
-.location .button-bx .btn.notHighligh{@apply w-full md:w-[48%] bg-transparent justify-start mt-0  border-none text-black underline  }
+.location .button-bx .btn.notHighligh{@apply w-full md:w-[48%] bg-transparent justify-start mt-0  border-none text-black underline;
+  color: #fff !important;
+}
+.button-bx .btn{
+  color: #fff !important;
+}
 .location .button-bx .btn + .btn{  @apply mt-2 ml-2 md:mt-0 hover:no-underline   w-auto }
 .location .button-bx .btn:hover svg{@apply !fill-red }
 .map-count{ @apply absolute text-white left-1/2 -translate-x-1/2 top-2 md:top-1 2xl:top-1 font-second-main-font text-xs }
@@ -710,4 +718,14 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
   border: 1px solid #002C73;
   color: #002C73;
   font-size: 15px;
+}
+.ctaBtn{
+  background-color: #002C73;
+  width: 33%;
+  color: #fff;
+  margin:auto;
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 10px; 
 }
