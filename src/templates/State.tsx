@@ -264,11 +264,11 @@ const region: Template<TemplateRenderProps> = ({
               let detlslug1 = "";
 
               if (!res.slug) {
-                let slugString = res.id + "-" + res.name;
+                let slugString = res.slug + "-" + res.name;
                 let slug = slugString;
                 detlslug1 = `${slug}.html`;
               } else {
-                detlslug1 = slug + "/" + entity.slug + "/" + res.id + ".html";
+                detlslug1 = slug + "/" + entity.slug + "/" + res.slug + ".html";
                 // detlslug1 = `/${res.slug.toString()}.html`;
                 // console.log(detlslug1, "d1state");
               }

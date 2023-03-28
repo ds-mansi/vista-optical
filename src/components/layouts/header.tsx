@@ -32,7 +32,7 @@ const Header = (props: any) => {
     // console.log(icon.url,"url123")
     return (
       <>
-        <img src={icon.url} style={{ paddingRight: "20px" }} />
+       <img src={icon.url} style={{ paddingRight: "20px" }} />
       </>
     );
   });

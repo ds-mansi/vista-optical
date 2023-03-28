@@ -330,7 +330,10 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .nearby-card .button-bx .btn{@apply w-[9.75rem] bg-Dark-red hover:bg-hover-btn font-second-main-font py-2.5  border-none text-white  }
 .nearby-card .button-bx .btn.notHighligh{@apply w-full md:w-[48%] ml-2 bg-white justify-start  border-none text-black underline  }
 .nearby-card .button-bx .btn + .btn{@apply mt-2 md:mt-0 w-auto hover:no-underline}
-.nearby-card .button-bx .btn:hover svg{@apply !fill-red }
+.nearby-card .button-bx .btn:hover svg{@apply !fill-red;}
+.nearby-card .button-bx .btn:hover{
+  color: #002C73 !important ; 
+}
 .map-section .button-bx .btn{@apply w-[11.25rem] md:w-[9.25rem] lg:w-[11.25rem]  bg-Dark-red hover:bg-hover-btn font-second-main-font  border-none text-white  }
 .map-section .button-bx .btn.notHighligh{@apply w-full md:w-[48%] bg-white justify-start  border-none text-black underline  }
 .map-section .button-bx .btn + .btn{@apply mt-2 md:mt-0 w-auto ml-2 hover:no-underline}

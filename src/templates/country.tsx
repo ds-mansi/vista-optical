@@ -61,8 +61,11 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  currentUrl = "/" + document.slug.toString().replaceAll(" ", "-") + ".html";
-  return "/" + document.slug.toString().replaceAll(" ", "-") + ".html";
+  currentUrl =
+    "/" + document.slug.toString().replaceAll(" ", "-").toLowerCase() + ".html";
+  return (
+    "/" + document.slug.toString().replaceAll(" ", "-").toLowerCase() + ".html"
+  );
 };
 
 // export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
@@ -237,10 +240,13 @@ const country: Template<TemplateRenderProps> = ({
           let childCityName = cityChild.map((res: any) => {
             let storesName = res.dm_directoryChildren;
             let storesChildName = storesName.map((stores: any) => {
-              return stores.name;
+              let store = stores.name.toLowerCase().replaceAll(" ", "-");
+              // console.log(store,"store")
+              return store;
             });
             let cityName = res.name.toLowerCase().replaceAll(" ", "-");
             let slugUrl = cityName + "/" + storesChildName;
+
             return slugUrl;
           });
           mainSlug = "this";
@@ -264,7 +270,10 @@ const country: Template<TemplateRenderProps> = ({
         }
         return (
           <li className=" storelocation-category">
-            <a key={entity.slug} href={slug + "/" + entity.slug + ".html"}>
+            <a
+              key={entity.slug}
+              href={slug + "/" + entity.slug.toLowerCase() + ".html"}
+            >
               {entity.name} ({entity.dm_baseEntityCount})
             </a>
           </li>
