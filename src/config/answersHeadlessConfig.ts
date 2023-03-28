@@ -4,7 +4,7 @@ export const AnswerExperienceConfig = {
   locale: "en",
   apiKey : "a4748e23747a8469a067f29fab740d20",
   verticalKey : "locations",
-  experienceKey : "vista-optical",
+  experienceKey : "vista-optical-1",
   experienceVersion: "STAGING",
   locationRadius: 804672,
   sessionTrackingEnabled: true,
