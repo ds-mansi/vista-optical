@@ -351,7 +351,9 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 /* breadcrumb */
 .breadcrumb{@apply mt-2 text-nav-link py-2}
 .breadcrumb ul{
-  @apply flex flex-wrap items-center
+  @apply flex flex-wrap items-center;
+  background-color: #002C73;
+  color: white;
 }
 .breadcrumb ul li{
   @apply md:mr-2.5 font-second-main-font text-dark-gray flex items-center text-base md:text-base
