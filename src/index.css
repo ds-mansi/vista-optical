@@ -606,7 +606,16 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .content-list .container{  @apply px-4;}
 .region-list{  @apply flex flex-wrap -mx-2 lg:-mx-4}
 .region-list .storelocation-category{  @apply w-1/2 md:w-1/3 lg:w-1/4 px-2 lg:px-4 mb-4 lg:mb-8}
-.region-list .storelocation-category a{  @apply p-6 text-center shadow-[0_3px_5px_rgba(243,243,243,1)] bg-white rounded-md w-full inline-block align-top leading-6 transition-all duration-300 text-sm md:text-base hover:bg-red hover:text-white h-full flex items-center justify-center
+.region-list .storelocation-category a{  @apply p-6 text-center shadow-[0_3px_5px_rgba(243,243,243,1)] bg-white rounded-md w-full inline-block align-top leading-6 transition-all duration-300 text-sm md:text-base hover:bg-red hover:text-white h-full flex items-center justify-center;
+  border: 1px solid #fff;  
+  background-color: #0077B4;
+  color: #fff;
+}
+.region-list .storelocation-category a:hover{
+  background-color: white;
+  border: 1px solid #0077B4;
+  color: #0077B4;
+  font-weight: bold;
 }
 .content-list.city-page{  @apply pb-10 md:pb-14}
 .city-location .button{  @apply px-6}
