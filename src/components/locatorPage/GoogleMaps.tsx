@@ -12,7 +12,7 @@ import {
   useComposedCssClasses,
 } from "../../hooks/useComposedCssClasses";
 import Mapicon2 from "../../images/MGMpin.svg";
-import clustericon from "../../images/cluster.png";
+import clustericon from "../../images/cluster.svg";
 import mapimage from "../../images/map.svg";
 import timesvg from "../../images/watch-icn.svg";
 import Hovermap from "../../images/MGMhover1.svg"
