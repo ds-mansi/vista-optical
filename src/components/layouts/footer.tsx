@@ -4,7 +4,6 @@ type props = {
   fheading: any;
   fnav: any;
   tandc: any;
- 
 };
 // props call
 const Footer = (props: any) => {
@@ -34,7 +33,9 @@ const Footer = (props: any) => {
     // console.log(nav.label,"lav")
     return (
       <ul>
-        <li style={{ fontSize: "12px" }}>{nav.label}</li>
+        <li style={{ fontSize: "12px" }}>
+          <a href={nav.link}>{nav.label}</a>
+        </li>
       </ul>
     );
   });
@@ -42,7 +43,9 @@ const Footer = (props: any) => {
     // console.log(nav.label,"lav")
     return (
       <ul>
-        <li style={{ fontSize: "12px" }}>{nav.label}</li>
+        <li style={{ fontSize: "12px" }}>
+          <a href={nav.link}>{nav.label}</a>
+        </li>
       </ul>
     );
   });
@@ -50,7 +53,7 @@ const Footer = (props: any) => {
     // console.log(nav.label,"lav")
     return (
       <ul>
-        <li style={{ fontSize: "12px" }}>{nav.label}</li>
+        <li style={{ fontSize: "12px" }}><a href={nav.link}>{nav.label}</a></li>
       </ul>
     );
   });
@@ -66,13 +69,13 @@ const Footer = (props: any) => {
             paddingLeft: "50px",
           }}
         >
-          {t.label}
+          <a href={t.link}>{t.label}</a>
         </li>
       </ul>
     );
   });
 
-//   console.log(props._site.c_footerRights,"hvsajdgvb")
+  //   console.log(props._site.c_footerRights,"hvsajdgvb")
 
   return (
     <>
@@ -85,24 +88,30 @@ const Footer = (props: any) => {
             {fhead}
           </div>
         </div>
-        <div className="flex" style={{ paddingBottom:"30px"}}>
+        <div className="flex" style={{ paddingBottom: "30px" }}>
           <div style={{ paddingLeft: "44%" }}>{ftnav}</div>
           <div style={{ paddingLeft: "8%" }}>{ftnav2}</div>
           <div style={{ paddingLeft: "6%" }}>{ftnav3}</div>
         </div>
-        <hr style={{ width: "80%", margin: "auto"}} />
+        <hr style={{ width: "80%", margin: "auto" }} />
         <div
           className="flex"
-          style={{ justifyContent: "center", padding: "30px",paddingRight:"50px" }}
+          style={{
+            justifyContent: "center",
+            padding: "30px",
+            paddingRight: "50px",
+          }}
         >
           {tndc}
         </div>
-		<hr style={{ width: "80%", margin: "auto"}} />
-		<div style={{textAlign:"center" }}>
-			<p style={{ fontSize: "10px", paddingBottom:"10px"}}>{props._site.c_footerRights.right1}
-			<br/>
-			 {props._site.c_footerRights.right2}</p>
-		</div>
+        <hr style={{ width: "80%", margin: "auto" }} />
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "10px", paddingBottom: "10px" }}>
+            {props._site.c_footerRights.right1}
+            <br />
+            {props._site.c_footerRights.right2}
+          </p>
+        </div>
       </div>
     </>
   );
