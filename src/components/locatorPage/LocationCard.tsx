@@ -8,6 +8,9 @@ import Address from "../commons/Address";
 import OpenClose from "../commons/openClose";
 import { StaticData } from "../../../sites-global/staticData";
 import { Link } from "@yext/pages/components";
+import phone from "../../images/phone.svg";
+import { useState } from "react";
+import Hours from "../commons/hours";
 
 const metersToMiles = (meters: number) => {
   const miles = meters * 0.000621371;
@@ -16,6 +19,15 @@ const metersToMiles = (meters: number) => {
 let array = [];
 
 const LocationCard: CardComponent<Location> = ({ result }) => {
+    const [timeStatus, setTimeStatus] = useState("");
+    const onOpenHide = () => {
+      if (timeStatus == "") {
+        setTimeStatus("active");
+      } else {
+        setTimeStatus("");
+      }
+    };
+    
   let url = "";
   const [hoursopen, setHoursopen] = React.useState(false);
 
@@ -39,7 +51,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
     }
   }
 
-  const { address } = result.rawData;
+  const { address, hours, additionalHoursText, timezone } = result.rawData;
        var name: any = result.rawData.name?.toLowerCase();
   var mainPhone: any = result.rawData.mainPhone;
   var country: any = result.rawData.address.countryCode?.toLowerCase();
@@ -116,51 +128,61 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
 
             <div className="icon-row content-col address-with-availablity notHighlight">
               <Address address={address} />
+              <div className="flex mt-2">
+                <img src={phone} style={{ height: "30px" }} />
+
+                <a href={"tel:" + mainPhone} style={{ fontSize: "18px" }}>
+                  {mainPhone}
+                </a>
+              </div>
               {result.rawData.hours ? (
                 <>
-                  <div className="mt-2">
-                    {/* <h6>Opening Hours</h6> */}
-                    {result.rawData.hours?.reopenDate ? (
-                      <>
-                        <div className="icon">
-                          {" "}
-                          <img
-                            className=" "
-                            src={timesvg}
-                            width="20"
-                            height="20"
-                            alt=""
-                          />{" "}
+                  <div className="open-close ">
+                    <div className="flex mt-2">
+                      <img
+                        src={timesvg}
+                        style={{ height: "25px", width: "25px", margin: "5px" }}
+                      />
+                      <h5 className="flex">Open Hours</h5>
+                    </div>
+                    <div className="hours-sec onhighLight">
+                      <div className="OpenCloseStatus ">
+                        <div className="hours-labels">
+                          <span className="icon"></span>
+                          <div className="flex">
+                            <OpenClose
+                              timezone={timezone}
+                              hours={hours}
+                              deliveryHours={hours}
+                            ></OpenClose>
+                            <button>
+                              <svg
+                                onClick={onOpenHide}
+                                className="mt-2 ml-2"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="19.585"
+                                height="7.793"
+                                viewBox="0 0 9.585 4.793"
+                              >
+                                <path
+                                  id="hrd-drop"
+                                  d="M9,13.5l4.793,4.793L18.585,13.5Z"
+                                  transform="translate(-9 -13.5)"
+                                  fill="#00363f"
+                                ></path>
+                              </svg>
+                            </button>
+                          </div>
                         </div>
-                        <div
-                          className=" flex open-now-string items-center "
-                          data-id={`main-shop-${result.rawData.id}`}
-                          onClick={opentime}
-                        >
-                          {StaticData.tempClosed}
+                        <div className={timeStatus + " daylist"}>
+                          <Hours
+                            key={result.rawData.id}
+                            hours={hours}
+                            additionalHoursText={additionalHoursText}
+                          />
                         </div>
-                      </>
-                    ) : (
-                      <>
-                        <div
-                          className=" flex open-now-string items-center"
-                          data-id={`main-shop-${result.rawData.id}`}
-                        >
-                          <OpenClose
-                            timezone={result.rawData.timezone}
-                            hours={result.rawData.hours}
-                            deliveryHours={result.rawData.hours}
-                          ></OpenClose>
-                        </div>
-                      </>
-                    )}
-
-                    {/* <div className={`storelocation-openCloseTime  capitalize hidden`}>
-                    {hoursopen?
-                   typeof result.rawData.hours === "undefined" ? ("") :
-                     <Hours key={result.rawData.name} additionalHoursText={result.rawData.additionalHoursText} hours={result.rawData.hours} c_specific_day={result.rawData.c_specific_day} />
-                   :''}
-                </div> */}
+                      </div>
+                    </div>
                   </div>
                 </>
               ) : (

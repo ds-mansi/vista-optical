@@ -112,7 +112,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: `${
       document.c_meta_title
         ? document.c_meta_title
-        : `Bumper Stores in ${document.name} | Find a Local Store`
+        : ` Vista Optical in ${document.name} | Find a Local Store`
     }`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
@@ -131,7 +131,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Use this page to find your nearest Bumper store in ${document.name} and discover the location details you need to visit us today.`
+              : `Use this page to find your nearest Vista Optical store in ${document.name} and discover the location details you need to visit us today.`
           }`,
         },
       },
@@ -196,7 +196,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Bumper to Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Vista Optical Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -239,7 +239,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Bumper Bumper to Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find  Vista Optical Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -536,7 +536,7 @@ const City: Template<TemplateRenderProps> = ({
       <div className="content-list city-page">
         <div className="container mx-auto">
           <div className="sec-title">
-            <h2>Bumper stores in {name}</h2>
+            <h2>Vista Optical stores in {name}</h2>
           </div>
           <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
             

@@ -283,7 +283,14 @@ table.day-hrs .time-b{  @apply text-lg md:text-lg  w-auto leading-[1.875rem] rou
   @apply w-5 mr-0
 }
 .icon-row h6{
-  @apply font-normal text-red m-0 leading-5 text-base md:text-lg md:leading-5 mb-1.5
+  @apply font-normal text-red m-0 leading-5 text-base md:text-lg md:leading-5 mb-1.5;
+  color: #002C73;
+}
+.OpenCloseStatus .daylist {
+  @apply hidden;
+}
+.active.daylist {
+  @apply !block pl-[50px];
 }
 .availablity-content{
   /*  border-l border-nav-link*/ @apply pl-0 py-1.5 

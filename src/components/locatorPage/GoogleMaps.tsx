@@ -69,7 +69,7 @@ let mapMarkerClusterer: { clearMarkers: () => void } | null = null;
 const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
   googleMapsContainer: "locator-map-block",
 };
-
+  
 /**
  * A component that renders a map with markers to show result locations.
  *
@@ -87,7 +87,6 @@ export function GoogleMaps(props: GoogleMapsProps) {
     </div>
   );
 }
-
 function UnwrappedGoogleMaps({
   centerLatitude,
   centerLongitude,
@@ -118,9 +117,9 @@ function UnwrappedGoogleMaps({
   };
 
   const refLocationResults = useRef({});
-
+  
   const locationResults = useFetchResults() || [];
-
+  
   refLocationResults.current = locationResults;
 
   locationResults.length > 0
@@ -356,14 +355,18 @@ function UnwrappedGoogleMaps({
 
   if (infoWindow.current != null) {
     infoWindow.current.addListener("closeclick", () => {
-      setHover(true);
+     setHover(true);
       info = false;
       infoWindow.current.close();
-      locationResults.map((result, index) => {
+      
+      locationResults.map((result :any, index:any) => {
+        console.log(result.name,"Index");
         const resultelement = document.querySelectorAll(
-          `.result-list-inner-${index + 1}`
+          `.result-list-inner-${result.name}`
         );
+        
         for (let index = 0; index < resultelement.length; index++) {
+          
           resultelement[index].classList.remove("active", "fixed-hover");
         }
       });
@@ -397,7 +400,9 @@ function UnwrappedGoogleMaps({
     marker_hover_icon: any,
     marker_icon: any
   ) {
+    
     const elements = document.querySelectorAll(".result");
+    
     for (let index = 0; index < elements.length; index++) {
       elements[index].addEventListener("mouseover", (e) => {
         if (hover) {
@@ -418,6 +423,13 @@ function UnwrappedGoogleMaps({
           removeActiveGrid(index);
         }
       });
+      // elements[index].addEventListener("click", () => {
+      //   // alert("This");
+
+      //   // console.log(index,"Pins");
+      //   // infoWindow.current.open(map,markerPins.current[index]);
+      //   infoWindow.current.open(map,markerPins.current[index]);
+      // });
     }
   }
   function gridclick(
@@ -477,21 +489,32 @@ function UnwrappedGoogleMaps({
   function Infowindow(i: number, result: any): void {
     info = true;
     let url = "";
+    var bound = new google.maps.LatLngBounds();
 
-    // const name: any = result.rawData.name?.toLowerCase();
-    // const region: any = result.rawData.address.region?.toLowerCase();
-    // const initialregion: any = region.toString();
-    // const finalregion: any = initialregion.replaceAll(" ", "-");
-    // const city: any = result.rawData.address.city?.toLowerCase();
-    // const initialrcity: any = city.toString();
-    // const finalcity: any = initialrcity.replaceAll(" ", "-");
-    // const string1: any = name.toString();
-    // const result1: any = string1.replaceAll(" ", "-");
-    // if (!result.rawData.slug) {
-    //   url = `${result.rawData.id}-${result1}.html`;
-    // } else {
-    //   url = `${result.rawData.slug.toString()}.html`;
-    // }
+    const name: any = result.rawData.name?.toLowerCase();
+    var country: any = result.rawData.address.countryCode?.toLowerCase();
+    const region: any = result.rawData.address.region?.toLowerCase();
+    const initialregion: any = region.toString();
+    const finalregion: any = initialregion.replaceAll(" ", "-");
+    const city: any = result.rawData.address.city?.toLowerCase();
+    const initialrcity: any = city.toString();
+    const finalcity: any = initialrcity.replaceAll(" ", "-");
+    const string1: any = name.toString();
+    const result1: any = string1.replaceAll(" ", "-");
+    var link =
+    country +
+    "/" +
+    region +
+    "/" +
+    city +
+    "/" +
+    result.rawData.slug?.toString() +
+    ".html";
+    if (!result.rawData.slug) {
+      url = `/${link}.html`;
+    } else {
+      url = `/${link}`;
+    }
 
     const MarkerContent = (
       <>
@@ -501,7 +524,7 @@ function UnwrappedGoogleMaps({
             {/* <div className="icon"> <img className=" " src={mapimage} width="20" height="20"
         alt="" /></div> */}
             <h2>
-              <a className="inline-block notHighlight" href={`/${result.rawData.id}`}>
+              <a className="inline-block notHighlight" href={`/${link}`}>
                 {result.rawData.name}
               </a>
             </h2>
@@ -517,7 +540,7 @@ function UnwrappedGoogleMaps({
               ""
             )}
           </div>
-          {/* {result.rawData.mainPhone?
+          {result.rawData.mainPhone?
     <div className="icon-row">
       <div className="icon"> <img className=" " src={Phonesvg} width="20" height="20" alt="" />
       </div>
@@ -526,7 +549,7 @@ function UnwrappedGoogleMaps({
         <a id="address" className="notHighlight" href={`tel:${result.rawData.mainPhone}`}>
           {result.rawData.mainPhone}</a>
       </div>
-    </div>:''} */}
+    </div>:''}
 
           {result.rawData.hours && result.rawData.hours.reopenDate ? (
             ""
@@ -562,7 +585,7 @@ function UnwrappedGoogleMaps({
           )}
         </div>
         <div className="button-bx !ml-4 !mb-0">
-          <a type="button" href={`/${result.rawData.id}`} className="btn">
+          <a type="button" href={`/${link}`} className="btn">
             {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
             {StaticData.StoreDetailbtn}
           </a>
