@@ -551,8 +551,10 @@ const Location: Template<ExternalApiRenderData> = ({
           <Faq faqs={c_faq} />
           {/* faq end */}
           {/* category section start */}
-          <h2 style={{ color: "#002C73", textAlign:"center" }}>{c_categoryName}</h2>
-          <div className="flex" style={{justifyContent:"center"}}>
+          <h2 style={{ color: "#002C73", textAlign: "center" }}>
+            {c_categoryName}
+          </h2>
+          <div className="flex" style={{ justifyContent: "center" }}>
             {c_category?.map((ca: any) => {
               return (
                 <>
@@ -572,7 +574,16 @@ const Location: Template<ExternalApiRenderData> = ({
               );
             })}
           </div>
-          <div className="flex" style={{ gap: "260px" ,fontSize:"25px",justifyContent:"center"}}>
+          <div
+            className="flex"
+            style={{
+              gap: "206px",
+              fontSize: "25px",
+              justifyContent: "center",
+              paddingBottom: "10px",
+              paddingTop: "10px",
+            }}
+          >
             {c_category?.map((ca: any) => {
               return (
                 <>
@@ -581,7 +592,10 @@ const Location: Template<ExternalApiRenderData> = ({
               );
             })}
           </div>
-          <div className="flex m-auto" style={{ gap: "270px" ,justifyContent:"center"}}>
+          <div
+            className="flex m-auto"
+            style={{ gap: "270px", justifyContent: "center" }}
+          >
             {c_category?.map((ca: any) => {
               return (
                 <>
