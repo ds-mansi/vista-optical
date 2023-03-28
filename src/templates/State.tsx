@@ -294,12 +294,8 @@ const region: Template<TemplateRenderProps> = ({
   // let bannerimage = c_banner_image && c_banner_image.image.url;
   return (
     <>
-      <Header
-            _site={_site}
-            logo={_site.c_logo}
-            nav={_site.c_headerNavbar}
-          />
-          <PageLayout global={_site} banner={_site.c_banner} />
+      <Header _site={_site} logo={_site.c_logo} nav={_site.c_headerNavbar} />
+      <PageLayout global={_site} banner={_site.c_banner} />
       <BreadCrumbs
         name={name}
         parents={dm_directoryParents}
@@ -318,11 +314,11 @@ const region: Template<TemplateRenderProps> = ({
       </div>
 
       <Footer
-            _site={_site}
-            fheading={_site.c_footerNavbarHeading}
-            fnav={_site.c_footerNav}
-            tandc={_site.c_footerTAndC}
-          />
+        _site={_site}
+        fheading={_site.c_footerNavbarHeading}
+        fnav={_site.c_footerNav}
+        tandc={_site.c_footerTAndC}
+      />
     </>
   );
 };

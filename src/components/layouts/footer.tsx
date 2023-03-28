@@ -23,7 +23,7 @@ const Footer = (props: any) => {
         <li
           style={{ fontSize: "12px", marginRight: "100px", color: "#E7F6FE" }}
         >
-          {f.label}
+          {f?.label}
         </li>
       </ul>
     );
@@ -34,7 +34,7 @@ const Footer = (props: any) => {
     return (
       <ul>
         <li style={{ fontSize: "12px" }}>
-          <a href={nav.link}>{nav.label}</a>
+          <a href={nav?.link}>{nav?.label}</a>
         </li>
       </ul>
     );
@@ -44,7 +44,7 @@ const Footer = (props: any) => {
     return (
       <ul>
         <li style={{ fontSize: "12px" }}>
-          <a href={nav.link}>{nav.label}</a>
+          <a href={nav?.link}>{nav?.label}</a>
         </li>
       </ul>
     );
@@ -69,7 +69,7 @@ const Footer = (props: any) => {
             paddingLeft: "50px",
           }}
         >
-          <a href={t.link}>{t.label}</a>
+          <a href={t?.link}>{t?.label}</a>
         </li>
       </ul>
     );
@@ -82,7 +82,7 @@ const Footer = (props: any) => {
       <div style={{ backgroundColor: "#002C73", color: "white" }}>
         <div className="flex" style={{ alignItems: "center" }}>
           <h2 style={{ padding: "50px 70px" }}>
-            {props._site.c_footerMainHeading}
+            {props?._site?.c_footerMainHeading}
           </h2>
           <div className="flex m-auto" style={{ paddingLeft: "100px" }}>
             {fhead}
@@ -107,9 +107,9 @@ const Footer = (props: any) => {
         <hr style={{ width: "80%", margin: "auto" }} />
         <div style={{ textAlign: "center" }}>
           <p style={{ fontSize: "10px", paddingBottom: "10px" }}>
-            {props._site.c_footerRights.right1}
+            {props?._site?.c_footerRights?.right1}
             <br />
-            {props._site.c_footerRights.right2}
+            {props?._site?.c_footerRights?.right2}
           </p>
         </div>
       </div>

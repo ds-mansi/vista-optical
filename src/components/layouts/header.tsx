@@ -117,7 +117,7 @@ const Header = (props: any) => {
         <div
           style={{
             display: "flex",
-            height: "35px",
+            height: "30px",
             padding: "4px",
             marginLeft: "20%",
           }}

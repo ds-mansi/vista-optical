@@ -308,14 +308,7 @@ const City: Template<TemplateRenderProps> = ({
     let result: any = string.replaceAll(" ", "-");
     // console.log(entity.slug,"object")
     var link =
-    country +
-    "/" +
-    region +
-    "/" +
-    city +
-    "/" +
-    entity.slug+
-    ".html";
+      country + "/" + region + "/" + city + "/" + entity.slug + ".html";
     if (!entity.slug) {
       url = `/${link}.html`;
     } else {
@@ -520,12 +513,8 @@ const City: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       />
-     <Header
-            _site={_site}
-            logo={_site.c_logo}
-            nav={_site.c_headerNavbar}
-          />
-          <PageLayout global={_site} banner={_site.c_banner} />
+      <Header _site={_site} logo={_site.c_logo} nav={_site.c_headerNavbar} />
+      <PageLayout global={_site} banner={_site.c_banner} />
       <BreadCrumbs
         name={name}
         address={address}
@@ -539,17 +528,16 @@ const City: Template<TemplateRenderProps> = ({
             <h2>Vista Optical stores in {name}</h2>
           </div>
           <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
-            
             {childrenDivs}
           </div>
         </div>
       </div>
       <Footer
-            _site={_site}
-            fheading={_site.c_footerNavbarHeading}
-            fnav={_site.c_footerNav}
-            tandc={_site.c_footerTAndC}
-          />
+        _site={_site}
+        fheading={_site.c_footerNavbarHeading}
+        fnav={_site.c_footerNav}
+        tandc={_site.c_footerTAndC}
+      />
     </>
   );
 };

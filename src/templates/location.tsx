@@ -131,7 +131,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
     "/" +
     city +
     "/" +
-    document.slug?.toString() +
+    document?.slug?.toString() +
     ".html";
   // var link=document.id.toString()
   // console.log(link, "link");
@@ -510,9 +510,9 @@ const Location: Template<ExternalApiRenderData> = ({
           <div className="container">
             <div className="banner-text banner-dark-bg justify-center text-center">
               <h1 className="">{name}</h1>
-              <div className="openClosestatus detail-page closeing-div">
+              {/* <div className="openClosestatus detail-page closeing-div">
                 <OpenClose timezone={timezone} hours={hours} />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="location-information">
