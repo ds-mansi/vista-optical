@@ -40,20 +40,37 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
   }
 
   const { address } = result.rawData;
-  //     var name: any = result.rawData.name?.toLowerCase();
-  //   var region: any = result.rawData.address.region?.toLowerCase();
-  //   var initialregion: any = region.toString();
-  //   var finalregion: any = initialregion.replaceAll(" ", "-");
-  //   var city: any = result.rawData.address.city?.toLowerCase();
-  //   var initialrcity: any = city.toString();
-  //   var finalcity: any = initialrcity.replaceAll(" ", "-");
-  //   var string: any = name.toString();
-  //   let result1: any = string.replaceAll(" ", "-");
-  //  if (!result.rawData.slug) {
-  //    url= `/${result.rawData.id}-${result1}.html`;
-  //  } else {
-  //    url= `/${result.rawData.slug.toString()}.html`;
-  //  }
+       var name: any = result.rawData.name?.toLowerCase();
+  var mainPhone: any = result.rawData.mainPhone;
+  var country: any = result.rawData.address.countryCode?.toLowerCase();
+  var region: any = result.rawData.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = result.rawData.address.city
+    ?.toLowerCase()
+    ?.replaceAll(" ", "-");
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var string: any = name.toString();
+  let result1: any = string.replaceAll(" ", "-");
+  var link =
+    country +
+    "/" +
+    region +
+    "/" +
+    city +
+    "/" +
+    result.rawData.slug?.toString() +
+    ".html";
+  // var link=result.rawData.id.toString()
+  // console.log(link, "link");
+  if (!result.rawData.slug) {
+    url = `/${link}.html`;
+  } else {
+    url = `/${link}`;
+  }
 
   return (
     <div
@@ -82,7 +99,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   data-ya-track={`viewDetail -${result.rawData.name}`}
                   eventName={`viewDetail -${result.rawData.name}`}
                   rel="noopener noreferrer"
-                  href={`/${result.rawData.id}`}
+                  href={`/${link}`}
                 >
                   {result.rawData.name}
                 </Link>

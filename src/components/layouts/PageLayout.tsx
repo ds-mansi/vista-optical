@@ -11,7 +11,7 @@ type Props = {
 };
 
 const PageLayout = ({ title, _site, global, children, banner }: Props) => {
-  console.log(banner.bannerCta.label, "bannerimg");
+  // console.log(banner.bannerCta.label, "bannerimg");
   return (
     <>
       <div style={{ position: "relative" }}>

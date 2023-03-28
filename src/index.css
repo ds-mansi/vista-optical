@@ -349,17 +349,21 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 /* locator page start  */
 
 /* breadcrumb */
-.breadcrumb{@apply mt-2 text-nav-link py-2}
+.breadcrumb{@apply text-nav-link ;
+}
 .breadcrumb ul{
   @apply flex flex-wrap items-center;
   background-color: #002C73;
   color: white;
+  padding: 15px;
 }
 .breadcrumb ul li{
-  @apply md:mr-2.5 font-second-main-font text-dark-gray flex items-center text-base md:text-base
+  @apply md:mr-2.5 font-second-main-font text-dark-gray flex items-center text-base md:text-base;
+  color: #fff;
 }
 .breadcrumb ul li .home{
-  @apply underline
+  @apply underline;
+  color: #fff !important;
 }
 
 .breadcrumb ul li{

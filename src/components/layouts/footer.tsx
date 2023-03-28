@@ -8,7 +8,7 @@ type props = {
 };
 // props call
 const Footer = (props: any) => {
-  console.log(props, "links");
+  // console.log(props, "links");
   //   console.log("copyright",props.copy.copyright)
   React.useEffect(() => {
     document.body.setAttribute("id", "body");

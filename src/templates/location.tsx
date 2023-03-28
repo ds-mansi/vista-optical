@@ -84,6 +84,10 @@ export const config: TemplateConfig = {
       "c_faq.answer",
       "c_category",
       "c_categoryName",
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.meta.entityType",
+      "dm_directoryParents.c_addressRegionDisplayName",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -103,23 +107,42 @@ export const config: TemplateConfig = {
  * NOTE: This currently has no impact on the local dev path. Local dev urls currently
  * take on the form: featureName/entityId
  */
+let url = "";
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  // var url = "";
-  // var name: any = document.name.toLowerCase();
-  // var string: any = name.toString();;
-  // let result: any = string.replaceAll(" ", "-");
-  // document.dm_directoryParents.map((result: any, i: Number) => {
-  //   if (i > 0) {
-  //     url += result.slug + "/"
-  //   }
-  // })
-  // if (!document.slug) {
-  //   url += `${result}.html`;
-  // } else {
-  //   url += `${document.slug.toString()}.html`;
-  // }
+ var name: any = document.name?.toLowerCase();
+  var mainPhone: any = document.mainPhone;
+  var country: any = document.address.countryCode?.toLowerCase();
+  var region: any = document.address.region
+    ?.toLowerCase()
+    .replaceAll(" ", "-");
+  var initialregion: any = region.toString();
+  var finalregion: any = initialregion.replaceAll(" ", "-");
+  var city: any = document.address.city
+    ?.toLowerCase()
+    ?.replaceAll(" ", "-");
+  var initialrcity: any = city.toString();
+  var finalcity: any = initialrcity.replaceAll(" ", "-");
+  var string: any = name.toString();
+  let result1: any = string.replaceAll(" ", "-");
+  var link =
+    country +
+    "/" +
+    region +
+    "/" +
+    city +
+    "/" +
+    document.slug?.toString() +
+    ".html";
+  // var link=document.id.toString()
+  // console.log(link, "link");
+  if (!document.slug) {
+    url = `/${link}.html`;
+  } else {
+    url = `/${link}`;
+  }
 
-  return document.id;
+
+  return url;
 };
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
@@ -301,6 +324,7 @@ const Location: Template<ExternalApiRenderData> = ({
     displayCoordinate,
     cityCoordinate,
     name,
+    dm_directoryParents,
     c_abouts,
     c_faq,
     c_category,
@@ -345,7 +369,7 @@ const Location: Template<ExternalApiRenderData> = ({
     }
   }
   document.dm_directoryParents &&
-    document.dm_directoryParents.map((i: any, index: any) => {
+    document?.dm_directoryParents?.map((i: any, index: any) => {
       if (i.meta.entityType.id == "ce_country") {
         document.dm_directoryParents[index].name =
           document.dm_directoryParents[index].name;
@@ -365,7 +389,7 @@ const Location: Template<ExternalApiRenderData> = ({
         });
       } else if (i.meta.entityType.id == "ce_region") {
         let url = "";
-        document.dm_directoryParents.map((j: any) => {
+        document?.dm_directoryParents?.map((j: any) => {
           if (
             j.meta.entityType.id != "ce_region" &&
             j.meta.entityType.id != "ce_city" &&
@@ -390,7 +414,7 @@ const Location: Template<ExternalApiRenderData> = ({
         });
       } else if (i.meta.entityType.id == "ce_city") {
         let url = "";
-        document.dm_directoryParents.map((j: any) => {
+        document?.dm_directoryParents?.map((j: any) => {
           if (
             j.meta.entityType.id != "ce_city" &&
             j.meta.entityType.id != "ce_root"
@@ -424,7 +448,7 @@ const Location: Template<ExternalApiRenderData> = ({
     },
   });
   let imageurl = photoGallery
-    ? photoGallery.map((element: any) => {
+    ? photoGallery?.map((element: any) => {
         return element.image.url;
       })
     : null;
@@ -477,6 +501,12 @@ const Location: Template<ExternalApiRenderData> = ({
             nav={_site.c_headerNavbar}
           />
           <PageLayout global={_site} banner={_site.c_banner} />
+          <BreadCrumbs
+            name={name}
+            parents={dm_directoryParents}
+            baseUrl={relativePrefixToRoot}
+            address={address}
+          ></BreadCrumbs>
           <div className="container">
             <div className="banner-text banner-dark-bg justify-center text-center">
               <h1 className="">{name}</h1>
