@@ -1,19 +1,15 @@
 import * as React from "react";
-import { useCallback, useEffect, useState } from "react";
-import { StaticData } from "../../../sites-global/staticData";
-import Timer from "../locationDetail/countdown";
-import Model from "../locationDetail/Model";
-import { OpenStausFunctions } from "./openClose";
+import { StaticData } from "../../../site-global/staticData";
+// import Timer from "../locationDetail/countdown";
 
 type Hours = {
   title?: string;
   hours: Week;
-  c_specific_day: any;
   additionalHoursText?: string;
   children?: React.ReactNode;
 };
 
-export interface Week extends Record<string, any> {
+interface Week extends Record<string, any> {
   monday?: Day;
   tuesday?: Day;
   wednesday?: Day;
@@ -33,13 +29,12 @@ type OpenIntervals = {
   end: string;
 };
 
-const now = new Date();
-
+const todayIndex = new Date().getDay();
 
 /**
  * Dynamically creates a sort order based on today's day.
  */
-function getSorterForCurrentDay(todayIndex:any): { [key: string]: number } {
+function getSorterForCurrentDay(): { [key: string]: number } {
   const dayIndexes = [0, 1, 2, 3, 4, 5, 6];
 
   const updatedDayIndexes = [];
@@ -63,27 +58,6 @@ function getSorterForCurrentDay(todayIndex:any): { [key: string]: number } {
     saturday: updatedDayIndexes[6],
   };
 }
-// for default sorting Monday to sunday
-function getDefaultsorter(): { [key: string]: number } {
-  const dayIndexes = [0, 1, 2, 3, 4, 5, 6];
-
-  const updatedDayIndexes = [];
-  for (let i = 0; i < dayIndexes.length; i++) {
-    const dayIndex = dayIndexes[i];
-    updatedDayIndexes[i] = dayIndex;
-  }
-
-  return {
-    monday: updatedDayIndexes[0],
-    tuesday: updatedDayIndexes[1],
-    wednesday: updatedDayIndexes[2],
-    thursday: updatedDayIndexes[3],
-    friday: updatedDayIndexes[4],
-    saturday: updatedDayIndexes[5],
-    sunday: updatedDayIndexes[6],
-  };
-}
-//
 
 const defaultSorter: { [key: string]: number } = {
   sunday: 0,
@@ -94,23 +68,11 @@ const defaultSorter: { [key: string]: number } = {
   friday: 5,
   saturday: 6,
 };
-var cuurentdaynum:number;
-function sortByDay(week: Week): Week {
-  const currentdayuk=useCallback(
-    () => {
-      return new Date(
-        now.toLocaleString("en-US", { timeZone: "Europe/London" })
-      ).getDay();
 
-    },
-    [now],
-  )
-  
-  const todayIndex = currentdayuk();
-  cuurentdaynum= currentdayuk();
+function sortByDay(week: Week): Week {
   const tmp = [];
   for (const [k, v] of Object.entries(week)) {
-    tmp[getSorterForCurrentDay(todayIndex)[k]] = { key: k, value: v };
+    tmp[getSorterForCurrentDay()[k]] = { key: k, value: v };
   }
 
   const orderedWeek: Week = {};
@@ -121,35 +83,23 @@ function sortByDay(week: Week): Week {
   return orderedWeek;
 }
 
-const weekDays: any = {
-  // "sunday": 0, // << if sunday is first day of week
-  monday: 1,
-  tuesday: 2,
-  wednesday: 3,
-  thursday: 4,
-  friday: 5,
-  saturday: 6,
-  sunday: 7,
-};
-
-const renderHours = (week: Week, c_specific_day: any) => {
+const renderHours = (week: Week) => {
   const dayDom: JSX.Element[] = [];
-  let i = 0;
+  var i = 0;
   for (const [k, v] of Object.entries(sortByDay(week))) {
     let a;
     let s;
-    let dayDate = new Date();
-    const getday = dayDate.getDay();
-    // console.log(weekDays[getday],"dayyyyyyy")
+    var dayDate = new Date();
+
     function join(t: any, a: any, s: any) {
       function format(m: any) {
-        const f = new Intl.DateTimeFormat("en", m);
+        let f = new Intl.DateTimeFormat("en", m);
         return f.format(t);
       }
-      return a.map(format).join(s);
+      return a?.map(format).join(s);
     }
-    function formatDate(date) {
-      let d = new Date(date),
+    function formatDate(date: any) {
+      var d = new Date(date),
         month = "" + (d.getMonth() + 1),
         day = "" + d.getDate(),
         year = d.getFullYear();
@@ -165,8 +115,11 @@ const renderHours = (week: Week, c_specific_day: any) => {
     a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
     s = join(dayDate, a, " ");
     dayDate = s;
-    // console.log('isToday',new Date(),new Date().getDay(),todayIndex, k, isDayToday(k));
 
+    week.holidayHours?.map((res: any) => {
+      if (res.date == formatDate(dayDate)) {
+      }
+    });
     dayDom.push(
       <DayRow
         key={k}
@@ -175,22 +128,16 @@ const renderHours = (week: Week, c_specific_day: any) => {
         day={v}
         isToday={isDayToday(k)}
         holidayhours={week.holidayHours}
-        c_specific_day={c_specific_day}
       />
     );
     i++;
   }
 
-  dayDom.sort(function sortByDay(a: any, b: any) {
-    const day1 = a.key?.toLowerCase();
-    const day2 = b.key?.toLowerCase();
-    return weekDays[day1] - weekDays[day2];
-  });
-  return <tbody key={i}>{dayDom}</tbody>;
+  return <tbody className="font-normal">{dayDom}</tbody>;
 };
 
 function isDayToday(dayName: string) {
-  return defaultSorter[dayName] === cuurentdaynum;
+  return defaultSorter[dayName] === todayIndex;
 }
 
 function convertTo12HourFormat(time: string, includeMeridiem: boolean): string {
@@ -208,28 +155,18 @@ function convertTo12HourFormat(time: string, includeMeridiem: boolean): string {
 type DayRow = {
   dayName: string;
   day: Day;
-  key:any;
   isToday?: boolean;
   dayDate: any;
   holidayhours: any;
-  c_specific_day: any;
 };
 
 const DayRow = (props: DayRow) => {
-  const { dayName, day, isToday, dayDate, holidayhours,key, c_specific_day } =
-    props;
-    const[currentDay,setCurrentDay]=useState('');
+  const { dayName, day, isToday, dayDate, holidayhours } = props;
   const [myDataAccordintToMe, setMyDataAccordintToMe] = React.useState({});
-  let a: (
-      | { day: string; month?: undefined; year?: undefined }
-      | { month: string; day?: undefined; year?: undefined }
-      | { year: string; day?: undefined; month?: undefined }
-    )[],
-    s,
-    holidayDate: any;
+  let a, s, holidayDate: any;
   function join(t: any, a: any, s: any) {
     function format(m: any) {
-      const f = new Intl.DateTimeFormat("en", m);
+      let f = new Intl.DateTimeFormat("en", m);
       return f.format(t);
     }
     return a.map(format).join(s);
@@ -238,7 +175,7 @@ const DayRow = (props: DayRow) => {
   const holidayarray: any[] = [];
   const holidayopenintervals: any[] = [];
   const keysFromData = holidayhours
-    ? holidayhours.map((holiday: any, index: number) => {
+    ? holidayhours.map((holiday: any, index: Number) => {
         a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
         s = join(new Date(holiday.date), a, " ");
         holidayDate = s;
@@ -249,26 +186,21 @@ const DayRow = (props: DayRow) => {
 
   React.useEffect(() => {
     if (keysFromData) {
-      const keysFromDataUnique = keysFromData.filter(
+      var keysFromDataUnique = keysFromData.filter(
         (value: any, index: any, self: any) => {
           return self.indexOf(value) === index;
         }
       );
-
-      const dataAccordintToMe = {};
+      var dataAccordintToMe = {};
       for (let index = 0; index < keysFromDataUnique.length; index++) {
         const element = keysFromDataUnique[index];
-
-        const day = new Date(element).getDate();
-
-        dataAccordintToMe[element] = holidayarray.filter((fe) => {
-          const adate = [
+        dataAccordintToMe[element] = holidayarray.filter((fe: any) => {
+          let adate = [
             { day: "numeric" },
             { month: "long" },
             { year: "numeric" },
           ];
-          const matchdate = join(new Date(fe.date), adate, " ");
-
+          let matchdate = join(new Date(fe.date), adate, " ");
           return matchdate == element;
         });
       }
@@ -278,130 +210,62 @@ const DayRow = (props: DayRow) => {
   }, []);
 
   let Status = false;
-  let boxday: any;
-  for (const key in myDataAccordintToMe) {
-    if (key == dayDate) {
+  for (var key in myDataAccordintToMe) {
+    if (key.includes(dayDate)) {
       Status = true;
       holidayopenintervals.push(myDataAccordintToMe[key]);
     }
   }
-
- useEffect(()=>{
-  if (isToday) {
-    setCurrentDay("currentDay");
-  }
- },[])
-
-
   return (
-    <tr className={currentDay} key={key}>
+    <tr className={isToday ? "bg-[#002C73] text-[#ffff] pr-1" : ""}>
       {Status ? (
-        <td className="dayName" key={key}>
-          <span className="checked"></span> {dayName}*
-          {/* {c_specific_day &&
-            c_specific_day.map((res: any) => {
-              return (
-                <>
-                  {join(new Date(res.holidayDate), a, " ") == dayDate ? (
-                    <span>{res.holidayName}</span>
-                  ) : (
-                    ""
-                  )}
-                </>
-              );
-            })} */}
+        <td key={"td1"} className="capitalize text-left  pl-1 pr-4">
+          <span>{dayName} (Holiday Hours)</span>
         </td>
       ) : (
-        <td className="dayName" key={key}>
-          <span className="checked"></span> {dayName}
+        <td key={"td2"} className="capitalize text-left pl-1 pr-4">
+          <span>{dayName}</span>
         </td>
       )}
 
       {!day.isClosed && (
-        <td className="dayTime" >
-          {Status
-            ? holidayopenintervals &&
-              holidayopenintervals.map((res: any) => {
-                return res?.map((openint: any,index:any) => {
-                  return (
-                    <>
-                      {openint.isClosed ? (
-                        <div className="time-group" key={index}>
-                          <span className="time-b closeddot">Closed</span>
-                        </div>
-                      ) : (
-                        openint?.openIntervals &&
-                        openint.openIntervals.map((res: any,index:any) => {
-                          return (
-                            <>
-                              <div className="time-group" key={index}>
-                                <span className="time-b">
-                                  {OpenStausFunctions.formatTime(
-                                    res.start
-                                  )}
-                                </span>{" "}
-                                <span className="dash"></span>{" "}
-                                <span className="time-b">
-                                  {OpenStausFunctions.formatTime(
-                                    res.end
-                                  )}
-                                </span>
-                              </div>
-                            </>
-                          );
-                        })
-                      )}
-                    </>
-                  );
-                });
-              })
-            : day.openIntervals &&
-              day.openIntervals.map((res: any, index: number) => {
-                return (
-                  <>
-                    <div className="time-group" key={index}>
-                      <span className="time-b">
-                        {OpenStausFunctions.formatTime(res.start)}
-                      </span>{" "}
-                      <span className="dash"></span>{" "}
-                      <span className="time-b">
-                        {OpenStausFunctions.formatTime(res.end)}
-                      </span>
-                    </div>
-                  </>
-                );
-              })}
-        </td>
-      )}
-      {day.isClosed &&
-        (Status ? (
-          <td className="dayTime">
-            {holidayopenintervals &&
-              holidayopenintervals.map((res: any) => {
-                return res.map((openint: any) => {
-                  return openint.openIntervals.map((res: any,index:number) => {
-                    return (
-                      <>
-                        <div className="time-group" key={index}>
-                          <span className="time-b">
-                            {OpenStausFunctions.formatTime(res.start)}
-                          </span>{" "}
-                          <span className="dash"></span>{" "}
-                          <span className="time-b">
-                            {OpenStausFunctions.formatTime(res.end)}
-                          </span>
-                        </div>
-                      </>
+        <td key={"td3"} className=" mr-2">
+          <span key={"spana"} className="inline">
+            {Status
+              ? holidayopenintervals?.map((res: any) => {
+                  return res?.map((openint: any) => {
+                    return openint.openIntervals?.map(
+                      (res: any, index: any) => {
+                        return (
+                          <>
+                            <span key={index} className="mr-2 text-[#000]">
+                              {res.start}
+                            </span>{" "}
+                            -<span className="ml-2 text-[#000]">{res.end}</span>
+                          </>
+                        );
+                      }
                     );
                   });
-                });
-              })}
-          </td>
-        ) : (
-          <td className="dayTime closed">
-            <span className="time-b closeddot">{StaticData.Closed}</span>
-          </td>
-        ))}
+                })
+              : day.openIntervals?.map((res: any, index: any) => {
+                  return (
+                    <>
+                      <span key={index} className="mr-2">
+                        {res.start}
+                      </span>{" "}
+                      -<span className="ml-2 ">{res.end}</span>
+                    </>
+                  );
+                })}
+          </span>
+        </td>
+      )}
+      {day.isClosed && (
+        <td key={"td4"} className="pr-1">
+          <span>Closed</span>
+        </td>
+      )}
     </tr>
   );
 };
@@ -410,10 +274,10 @@ const Hours = (props: Hours) => {
   let a;
   let s;
   let dateNewFormat;
-  const { title, hours, additionalHoursText, c_specific_day } = props;
+  const { title, hours, additionalHoursText } = props;
   function join(t: any, a: any, s: any) {
     function format(m: any) {
-      const f = new Intl.DateTimeFormat("en", m);
+      let f = new Intl.DateTimeFormat("en", m);
       return f.format(t);
     }
     return a.map(format).join(s);
@@ -426,24 +290,22 @@ const Hours = (props: Hours) => {
 
   return (
     <>
+      {/* <div className=" text-xl font-semibold mb-4">{title}</div> */}
       <table className="day-hrs">
         <thead className="sr-only">
           <tr>
-            <th>{StaticData.DayofWeek}</th>
-            <th>{StaticData.Hours}</th>
+            <th>Day of the week</th>
+            <th>Hours</th>
           </tr>
         </thead>
 
         {hours && hours.reopenDate ? (
           <span>
             {additionalHoursText} <br />
-            <span>
-              {" "}
-              {StaticData.Reopenmessage} {dateNewFormat}{" "}
-            </span>
+            <span> Reopen {dateNewFormat} </span>
           </span>
         ) : (
-          <>{renderHours(hours, c_specific_day)}</>
+          <>{renderHours(hours)}</>
         )}
       </table>
     </>
