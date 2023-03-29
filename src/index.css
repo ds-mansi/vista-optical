@@ -802,3 +802,8 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
   border: 1px solid #002C73;
   text-decoration: underline;
 }
+.explore-btn:hover{
+  background-color: #fff;
+  color: #002C73;
+  border: 1px solid #002C73;
+}
