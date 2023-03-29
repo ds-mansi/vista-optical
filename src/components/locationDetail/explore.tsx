@@ -1,10 +1,9 @@
-import React from "react";
+import * as React from "react";
 
 type explore = {
   prop: any;
 };
 const Explore = (explore: any) => {
-  console.log(explore.prop.exploreImg, "explore");
   return (
     <>
       <div style={{ position: "relative" }}>

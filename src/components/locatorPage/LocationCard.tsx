@@ -19,15 +19,15 @@ const metersToMiles = (meters: number) => {
 let array = [];
 
 const LocationCard: CardComponent<Location> = ({ result }) => {
-    const [timeStatus, setTimeStatus] = useState("");
-    const onOpenHide = () => {
-      if (timeStatus == "") {
-        setTimeStatus("active");
-      } else {
-        setTimeStatus("");
-      }
-    };
-    
+  const [timeStatus, setTimeStatus] = useState("");
+  const onOpenHide = () => {
+    if (timeStatus == "") {
+      setTimeStatus("active");
+    } else {
+      setTimeStatus("");
+    }
+  };
+
   let url = "";
   const [hoursopen, setHoursopen] = React.useState(false);
 
@@ -50,9 +50,9 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
       setHoursopen(false);
     }
   }
-// console.log(result.rawData.c_drName,"c_drName")
+  // console.log(result.rawData.c_drName,"c_drName")
   const { address, hours, additionalHoursText, timezone } = result.rawData;
-       var name: any = result.rawData.name?.toLowerCase();
+  var name: any = result.rawData.name?.toLowerCase();
   var mainPhone: any = result.rawData.mainPhone;
   var country: any = result.rawData.address.countryCode?.toLowerCase();
   var region: any = result.rawData.address.region
@@ -125,10 +125,10 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                 ""
               )}
             </div>
-            
+
             <div className="icon-row content-col address-with-availablity notHighlight">
               <Address address={address} />
-              
+
               <div className="flex mt-2">
                 <img src={phone} style={{ height: "30px" }} />
 
@@ -136,7 +136,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   {mainPhone}
                 </a>
               </div>
-              
+
               {result.rawData.hours ? (
                 <>
                   <div className="open-close ">
@@ -145,7 +145,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                         src={timesvg}
                         style={{ height: "25px", width: "25px", margin: "5px" }}
                       />
-                      
+
                       <h5 className="flex">Open Hours</h5>
                     </div>
                     <div className="hours-sec onhighLight">
@@ -239,12 +239,10 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   longitude={result.rawData.yextDisplayCoordinate?.longitude}
                 />
               )}
-              
             </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 };
