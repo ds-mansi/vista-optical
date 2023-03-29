@@ -56,6 +56,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import MgmTimber from "../components/locationDetail/MgmTimber";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/layouts/header";
+import Explore from "../components/locationDetail/explore";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -83,6 +84,9 @@ export const config: TemplateConfig = {
       "c_faq.question",
       "c_faq.answer",
       "c_category",
+      "c_brandText",
+      "c_brandSlider",
+      "c_exploreSection",
       "c_categoryName",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
@@ -109,17 +113,13 @@ export const config: TemplateConfig = {
  */
 let url = "";
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
- var name: any = document.name?.toLowerCase();
+  var name: any = document.name?.toLowerCase();
   var mainPhone: any = document.mainPhone;
   var country: any = document.address.countryCode?.toLowerCase();
-  var region: any = document.address.region
-    ?.toLowerCase()
-    .replaceAll(" ", "-");
+  var region: any = document.address.region?.toLowerCase().replaceAll(" ", "-");
   var initialregion: any = region.toString();
   var finalregion: any = initialregion.replaceAll(" ", "-");
-  var city: any = document.address.city
-    ?.toLowerCase()
-    ?.replaceAll(" ", "-");
+  var city: any = document.address.city?.toLowerCase()?.replaceAll(" ", "-");
   var initialrcity: any = city.toString();
   var finalcity: any = initialrcity.replaceAll(" ", "-");
   var string: any = name.toString();
@@ -140,7 +140,6 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   } else {
     url = `/${link}`;
   }
-
 
   return url;
 };
@@ -326,6 +325,9 @@ const Location: Template<ExternalApiRenderData> = ({
     name,
     dm_directoryParents,
     c_abouts,
+    c_brandSlider,
+    c_brandText,
+    c_exploreSection,
     c_faq,
     c_category,
     c_categoryName,
@@ -494,7 +496,6 @@ const Location: Template<ExternalApiRenderData> = ({
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-          {/* <PageLayout global={_site}> */}
           <Header
             _site={_site}
             logo={_site.c_logo}
@@ -509,7 +510,7 @@ const Location: Template<ExternalApiRenderData> = ({
           ></BreadCrumbs>
           <div className="container">
             <div className="banner-text banner-dark-bg justify-center text-center">
-              <h1 className="">{name}</h1>
+              <h1 className="font-bold">{name}</h1>
               {/* <div className="openClosestatus detail-page closeing-div">
                 <OpenClose timezone={timezone} hours={hours} />
               </div> */}
@@ -577,9 +578,19 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
           </div>
           {/* about end */}
-          {/* faq start */}
-          <Faq faqs={c_faq} />
-          {/* faq end */}
+          {/* brand slider start */}
+          <h2
+            style={{
+              textAlign: "center",
+              color: "#002C73",
+              padding: "25px 0px 5px 0px",
+            }}
+          >
+            {c_brandText}
+          </h2>
+          <PhotoSlider brand={c_brandSlider} />
+          {/* brand slider end */}
+
           {/* category section start */}
           <h2 style={{ color: "#002C73", textAlign: "center" }}>
             {c_categoryName}
@@ -637,6 +648,18 @@ const Location: Template<ExternalApiRenderData> = ({
             })}
           </div>
           {/*  category section end */}
+          {/* faq start */}
+          {c_faq ? (
+            <div className="w-full  pt-8">
+              <h4 className="sec_heading  text-[30px] text-center pt-4 text-[#002C73]">
+                How can we help ?
+              </h4>
+              {<Faq prop={c_faq} />}
+            </div>
+          ) : (
+            <></>
+          )}
+          {/* faq end */}
           <div className="nearby-sec">
             <div className="container">
               <div className="sec-title">
@@ -652,7 +675,13 @@ const Location: Template<ExternalApiRenderData> = ({
                 )}
               </div>
             </div>
+            <button className="view-more-btn">
+              <a href="/index.html">View More Location</a>
+            </button>
           </div>
+          {/* explore section start */}
+          <Explore prop={c_exploreSection}/>
+          {/* explore section end */}
           <Footer
             _site={_site}
             fheading={_site.c_footerNavbarHeading}

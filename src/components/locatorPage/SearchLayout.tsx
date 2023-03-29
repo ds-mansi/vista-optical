@@ -314,6 +314,7 @@ const SearchLayout = (props: any): JSX.Element => {
                   fieldApiName: "address.countryCode",
 
                 },
+                
               ]}
               handleInputValue={handleInputValue}
               //handleSetUserShareLocation={handleSetUserShareLocation}

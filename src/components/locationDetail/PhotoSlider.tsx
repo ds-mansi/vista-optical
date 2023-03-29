@@ -1,20 +1,30 @@
 import * as React from "react";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const PhotoSlider = (props: any) => {
-  const { photoGallery, height, width } = props;  
-  const photos = photoGallery.map((element:any) => (   
-
-	<SplideSlide>
-    <img height={height} width={width} src={element.url} />
-	</SplideSlide>    
+  const { brand } = props;
+  // console.log(brand,"brand")
+  const photos = brand?.map((element: any) => (
+    <SplideSlide>
+      <img
+        src={element.brandImg.url}
+        style={{
+          height: "72%",
+          width: "34%",
+          display: "block",
+          margin: "auto",
+        }}
+      />
+      <h3 style={{ textAlign: "center", color: "#002C73", fontWeight: "bold" }}>
+        {element?.brandName}
+      </h3>
+    </SplideSlide>
   ));
+
   return (
     <>
-	  <Splide aria-label="Photo Slider">
-          {photos}
-      </Splide>
+      <Splide aria-label="Photo Slider">{photos}</Splide>
     </>
   );
 };
