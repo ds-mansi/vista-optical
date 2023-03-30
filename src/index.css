@@ -554,7 +554,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .nearby-card h2 a{ @apply font-second-main-font  !text-lg text-[#002C73]; 
   font-weight: bold;
 }
-.nearby-card .distance{ @apply absolute right-0 md:right-2 top-0 md:-top-0.5}
+.nearby-card .distance{ @apply absolute right-0 top-0 md:-top-0.5}
 .near-address{ @apply flex mt-2 items-start min-h-[90px]}
 .nearby-card .address { @apply text-lg }
 .nearby-card .availability-col{@apply my-4 hidden md:flex md:max-w-[100%] lg:max-w-none }
