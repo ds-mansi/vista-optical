@@ -228,9 +228,9 @@ export const OpenStausFunctions = {
                 <span className="font-second-main-font "> Closed - </span>
                 {"Opens at "}
                 <span className="lowercase">
-                  {OpenStausFunctions.formatTime(nextInterval.start).replace(
-                    ":00",
-                    ""
+                  {(nextInterval.start).replace(
+                    " ",
+                    ":00"
                   )}
                 </span>{" "}
                 {week[Day]}
@@ -246,9 +246,9 @@ export const OpenStausFunctions = {
                 <span className="font-second-main-font">Closed - </span>
                 {"Opens at "}
                 <span className="lowercase">
-                  {OpenStausFunctions.formatTime(nextInterval.start).replace(
-                    ":00",
-                    ""
+                  {(nextInterval.start).replace(
+                    " ",
+                    ":00"
                   )}
                 </span>
               </div>{" "}

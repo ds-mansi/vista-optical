@@ -68,9 +68,9 @@ const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
             <p>{StaticData.cantfind_page}.</p>
             <p>{StaticData.Youcouldtry}</p>
             <div className="button-bx max-w-[45rem] !mx-auto !mt-5">
-              <a className="btn" href="javascript:history.back()">
+              {/* <a className="btn" href="javascript:history.back()">
                 {StaticData.Previuspage} &gt;
-              </a>
+              </a> */}
               <a className="btn" href="/">
                 {StaticData.homePage} &gt;
               </a>

@@ -32,7 +32,7 @@ const Header = (props: any) => {
     // console.log(icon.url,"url123")
     return (
       <>
-       <img src={icon.url} style={{ paddingRight: "20px" }} />
+        <img src={icon.url} style={{ paddingRight: "20px" }} />
       </>
     );
   });
@@ -64,10 +64,19 @@ const Header = (props: any) => {
           }}
         >
           <img src={HeaderMarker} style={{ height: "30px" }} />
-          <form>
+          <form
+            method="get"
+            id="HeaderSearchForm"
+            className="search Header-form"
+            action="#"
+          >
             <input
               placeholder={props._site.c_searchHeading}
+              className="search-input Header-input"
               type="text"
+              name="inputStoreValue"
+              id="HeaderSearchInput"
+              required
               style={{
                 border: "1px solid black",
                 fontSize: "14px",
@@ -79,6 +88,9 @@ const Header = (props: any) => {
             />
             <a href={props._site.c_storeHead.link}>
               <button
+                type="submit"
+                className="search-button Header-submit"
+                data-ya-track="search"
                 style={{
                   backgroundColor: "#002C73",
                   color: "white",
@@ -90,7 +102,9 @@ const Header = (props: any) => {
                   borderBottomRightRadius: "4px",
                 }}
               >
-                {props._site.c_storeHead.label}
+                <span className="Header-submitLabel">
+                  {props._site.c_storeHead.label}
+                </span>
               </button>
             </a>
             <a href={props._site.c_examCta.link}>
@@ -101,7 +115,7 @@ const Header = (props: any) => {
                   fontWeight: "bold",
                   padding: "7px",
                   fontSize: "13px",
-                  borderRadius:"4px"
+                  borderRadius: "4px",
                 }}
               >
                 {props._site.c_examCta.label}

@@ -211,11 +211,16 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                 </div>
               )}
             </div>
-
             <div className="button-bx">
+              <div style={{paddingRight:"1rem"}}>
+                <h4 className="text-[#002C73]">{result?.rawData?.c_drName}</h4>
+              </div>
+              </div>
+            <div className="button-bx">
+              
               <Link
                 type="button"
-                href={`/${result.rawData.id}`}
+                href={`/${link}`}
                 className=" btn notHighlight "
                 data-ya-track={`viewStore -${result.rawData.name}`}
                 eventName={`viewStore -${result.rawData.name}`}
