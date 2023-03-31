@@ -116,6 +116,8 @@ export default function Nearby(props: any) {
                     })}
                   </div>
                 </div>
+                <div className="flex" >
+                <div style={{width:"62%"}}>
                 <div className="icon-row content-col flex">
                   {/* <img src={mapimage} style={{height:"25px"}}/> */}
                   <Address address={location.address} />
@@ -161,6 +163,7 @@ export default function Nearby(props: any) {
                     {mainPhone}
                   </Link>
                 </div>
+                </div>
                 <div className="button-bx">
                   <Link
                     className="btn"
@@ -190,6 +193,7 @@ export default function Nearby(props: any) {
                         : location.yextDisplayCoordinate.longitude
                     }
                   />
+                </div>
                 </div>
               </div>
               {/* </SplideSlide> */}
