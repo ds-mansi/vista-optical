@@ -68,7 +68,7 @@ const Header = (props: any) => {
             method="get"
             id="HeaderSearchForm"
             className="search Header-form"
-            action="#"
+            action="http://localhost:5173/locator/global-data"
           >
             <input
               placeholder={props._site.c_searchHeading}

@@ -179,6 +179,18 @@ const FilterSearch = React.forwardRef<FilterHandle, FilterSearchProps>(
       screenReaderText = screenReaderPhrases.join(" ");
     }
 
+    useEffect(()=>{
+      let params = (new URL(window.location.href)).searchParams;
+      let addresssearch = params.get("inputStoreValue");
+      if(addresssearch){
+              setInput(addresssearch); 
+  
+        }else{
+                 setInput(inputvalue); 
+        }
+     },[inputvalue]);
+
+
     return (
       <div className={cssClasses.container}>
         <InputDropdown

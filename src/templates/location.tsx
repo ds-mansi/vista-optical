@@ -680,7 +680,7 @@ const Location: Template<ExternalApiRenderData> = ({
             </button>
           </div>
           {/* explore section start */}
-          <Explore prop={c_exploreSection}/>
+          <Explore prop={c_exploreSection} />
           {/* explore section end */}
           <Footer
             _site={_site}

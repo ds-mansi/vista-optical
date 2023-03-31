@@ -230,6 +230,16 @@ const SearchLayout = (props: any): JSX.Element => {
       // searchActions.resetFacets();
       FirstLoad();
     }
+
+
+
+    let params = (new URL(window.location.href)).searchParams;
+    let addresssearch = params.get("inputStoreValue");
+    setInputValue('');
+    getCoordinates(addresssearch); 
+
+
+
   }, []);
 
   return (
