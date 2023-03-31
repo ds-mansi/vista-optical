@@ -59,21 +59,42 @@ const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <Header _site={_site} logo={_site.c_logo} nav={_site.c_headerNavbar} />
+      <div className="bg-[#f1dfdf] w-auto text-center text-xs py-1 font-bold">
+        {_site.c_error.headMain}
+      </div>
       <div className="content-list">
-        <div className="container">
-          <div className="sec-title text-center">
-            <h1 className="" style={{ textAlign: "center" }}>
+        <div className="container flex">
+          <img src={_site.c_error.errorImg.url} />
+          <div className="sec-title left-0">
+            <h1>{_site.c_error.errorHeading}</h1>
+            <p>{_site.c_error.errorDesc}</p>
+            <p>{_site.c_error.errorDesc2}</p>
+            <button>
+              {_site?.c_error?.errorCta?.map((error: any) => {
+                return (
+                  <ul>
+                    <li className="text-[#0073B7] underline">
+                      <a href={error?.link}>{error.label}</a>
+                    </li>
+                  </ul>
+                );
+              })}
+            </button>
+            {/* <h1 className="" style={{ textAlign: "center" }}>
               {StaticData.PagenotFound}
             </h1>
             <p>{StaticData.cantfind_page}.</p>
-            <p>{StaticData.Youcouldtry}</p>
+            <p>{StaticData.Youcouldtry}</p> */}
             <div className="button-bx max-w-[45rem] !mx-auto !mt-5">
               {/* <a className="btn" href="javascript:history.back()">
                 {StaticData.Previuspage} &gt;
               </a> */}
-              <a className="btn" href="/">
-                {StaticData.homePage} &gt;
-              </a>
+              <h4>{_site?.c_error?.searchHeading}</h4>
+              <div className="mt-5">
+                <a className="err-btn" href="/">
+                  {StaticData.homePage} &gt;
+                </a>
+              </div>
             </div>
           </div>
         </div>

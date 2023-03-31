@@ -1058,7 +1058,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .sec-title h2,
 .sec-title h1 {
-  @apply text-center text-2xl font-second-main-font md:text-[1.75rem] text-red;
+  @apply text-2xl font-second-main-font md:text-[1.75rem] text-red;
   color: #002c73 !important;
 }
 .sec-title h1 {
@@ -1590,6 +1590,14 @@ nav[aria-label="Pagination"] button:disabled {
   .opennow-sec {
     @apply text-base;
   }
+}
+.err-btn{
+  background-color: #0077b4;
+  color: #fff;
+  border-radius: 20px;
+  border:1px solid #0077b4;
+  /* margin-top: 25px; */
+  padding:10px 25px 10px 25px;
 }
 
 @media screen and (max-width: 767px) {

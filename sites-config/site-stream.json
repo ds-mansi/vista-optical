@@ -17,7 +17,8 @@
       "c_footerNav",
       "c_footerTAndC",
       "c_footerRights",
-      "c_storeHead"
+      "c_storeHead",
+      "c_error"
   ],
   "localization": {
     "locales": ["en"],
