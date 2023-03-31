@@ -740,6 +740,15 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .map-section .button-bx .btn {
   @apply w-[11.25rem] md:w-[9.25rem] lg:w-[11.25rem]  bg-Dark-red hover:bg-hover-btn font-second-main-font  border-none text-white;
+  background-color: white  !important;
+  color: #0077b4 !important;
+  border: 1px solid #0077b4 !important;
+  border-radius: 30px !important;
+}
+.map-section .button-bx .btn:hover{
+  background-color: #0077b4 !important;
+  color:white !important;
+  border: 1px solid #0077b4 !important;
 }
 .map-section .button-bx .btn.notHighligh {
   @apply w-full md:w-[48%] bg-white justify-start  border-none text-black underline;
@@ -749,6 +758,14 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .map-section .button-bx .btn:hover svg {
   @apply !fill-red;
+}
+.map-section .button-bx .btn+.btn{
+  border: 1px solid #0077b4;
+  border-radius: 30px;
+  color: #0077b4 !important;
+}
+.map-section .button-bx .btn+.btn:hover{
+  color: #fff !important;
 }
 
 .nearby-card .green-dot svg,

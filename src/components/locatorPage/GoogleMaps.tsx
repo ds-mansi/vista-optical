@@ -584,7 +584,7 @@ function UnwrappedGoogleMaps({
             </div>
           )}
         </div>
-        <div className="button-bx !ml-4 !mb-0">
+        <div className="button-bx !ml-4 !mb-0 flex">
           <a type="button" href={`/${link}`} className="btn">
             {/* <div dangerouslySetInnerHTML={{__html: View_Store}}/> */}
             {StaticData.StoreDetailbtn}
