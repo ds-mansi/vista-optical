@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BaseUrl, stagingBaseurl } from "../../../sites-global/global";
+import { BaseUrl} from "../../../sites-global/global";
 import HeaderMarker from "../../images/HeaderMarker.svg";
 
 type props = {
