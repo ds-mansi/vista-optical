@@ -345,7 +345,7 @@ body.mapView .mobile-btns .btn.mapBtn {
 }
 .location .result-inner .address-with-availablity {
   @apply mb-0;
-  width: 60%;
+  width: 61%;
 }
 
 .location .result-inner .svg-map-icn svg {
@@ -366,7 +366,7 @@ body.mapView .mobile-btns .btn.mapBtn {
   margin-bottom: 5px !important;
   font-size: 12px !important;
   border-radius: 30px;
-  padding: 2px 25px 2px 25px;
+  padding: 2px 22px 2px 22px;
   width: 100%;
   background-color: #fff !important;
   border: 1px solid #024b86 !important;
@@ -763,6 +763,7 @@ nav[aria-label="Pagination"] button:disabled {
   border: 1px solid #0077b4;
   border-radius: 30px;
   color: #0077b4 !important;
+
 }
 .map-section .button-bx .btn+.btn:hover{
   color: #fff !important;
