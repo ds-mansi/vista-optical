@@ -697,7 +697,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .nearby-card .button-bx .btn {
   @apply w-[9.75rem] bg-Dark-red hover:bg-hover-btn font-second-main-font py-2.5  border-none text-white;
-  font-size: 12px !important;
+  font-size: 11px !important;
   border-radius: 30px;
   padding: 2px 20px 2px 20px;
   width: 100%;
@@ -756,7 +756,7 @@ nav[aria-label="Pagination"] button:disabled {
   @apply order-2 ml-1 mt-1;
 }
 .nearby-card .button-bx .btn {
-  border: 1px solid #002c73 !important;
+  border: 1px solid #0077b4 !important;
   align-content: center;
 }
 .nearby-card .button-bx .btn:hover {
@@ -923,6 +923,17 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .address-main-sec .button-bx .btn {
   @apply min-w-[10.25rem] w-40 py-3 uppercase font-second-main-font !border-none hover:!bg-hover-btn leading-5  md:w-auto;
+  border-radius: 30px;
+  background-color: #fff !important;
+  color:#002c73 !important; 
+  border: 1px solid #0077b4 !important;
+  font-weight: bold;
+}
+.address-main-sec .button-bx .btn:hover{
+  background-color: #002c73 !important;
+  color: white !important;
+  border: 1px solid #0077b4 !important;
+
 }
 .availability-col {
   @apply mt-4  mb-0 pl-0    !flex-row flex-wrap;
