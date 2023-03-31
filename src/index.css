@@ -301,7 +301,7 @@ body.mapView .mobile-btns .btn.mapBtn {
   @apply text-Dark-red border-t-0 border-l-0 border-r-0 !border-b-2 !border-red  text-lg font-second-main-font !capitalize hover:bg-transparent;
 }
 .button-bx .btn {
-  background-color: #002c73 !important;
+  background-color: #0077b4 !important;
 }
 .button-bx .btn:hover {
   background-color: #0077b4 !important;
@@ -762,7 +762,7 @@ nav[aria-label="Pagination"] button:disabled {
 .nearby-card .button-bx .btn:hover {
   color: #fff;
   background-color: #0077b4 !important ;
-  border: 1px solid #024b86;
+  border: 1px solid #0077b4 !important;
 }
 .nearby-card .button-bx .btn.notHighligh {
   color: white;
@@ -779,12 +779,12 @@ nav[aria-label="Pagination"] button:disabled {
     text-transform: uppercase;
     text-align: center;
 }
-.nearby-card .button-bx .btn.notHighligh:hover {
+/* .nearby-card .button-bx .btn:hover {
   color: #fff !important ;
-  background-color: #024b86;
-  border: 1px solid #024b86;
+  background-color: #0077b4 !important;
+  border: 1px solid #0077b4 !important;
 
-}
+} */
 
 /* locator page start  */
 
