@@ -1,5 +1,4 @@
 import * as React from "react";
-import { BaseUrl} from "../../../sites-global/global";
 import HeaderMarker from "../../images/HeaderMarker.svg";
 
 type props = {
@@ -69,7 +68,7 @@ const Header = (props: any) => {
             method="get"
             id="HeaderSearchForm"
             className="search Header-form"
-            action={BaseUrl}
+            action={"http://localhost:5173/locator/global-data"}
           >
             <input
               placeholder={props._site.c_searchHeading}
