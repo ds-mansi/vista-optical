@@ -69,7 +69,10 @@ const Header = (props: any) => {
             method="get"
             id="HeaderSearchForm"
             className="search Header-form"
+            // on live website
             action={stagingBaseurl}
+            // on local host
+            // action="http://localhost:5173/locator"
           >
             <input
               placeholder={props._site.c_searchHeading}
