@@ -40,7 +40,7 @@ export const getPath: GetPath<TemplateProps> = () => {
 // Add a title to the page
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
   return {
-    title: "Page Not Found",
+    title: "Not Found",
     tags: [
       {
         type: "link",
@@ -65,7 +65,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
       <div className="content-list">
         <div className="container flex">
           <img src={_site.c_error.errorImg.url} />
-          <div className="sec-title left-0">
+          <div className="left-0 mb-4 md:mb-7">
             <h1>{_site.c_error.errorHeading}</h1>
             <p>{_site.c_error.errorDesc}</p>
             <p>{_site.c_error.errorDesc2}</p>
@@ -73,8 +73,8 @@ const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
               {_site?.c_error?.errorCta?.map((error: any) => {
                 return (
                   <ul>
-                    <li className="text-[#0073B7] underline">
-                      <a href={error?.link}>{error.label}</a>
+                    <li className="text-[#0073B7] underline left-0 ">
+                      <a href="/">{error.label}</a>
                     </li>
                   </ul>
                 );
@@ -92,7 +92,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
               <h4>{_site?.c_error?.searchHeading}</h4>
               <div className="mt-5">
                 <a className="err-btn" href="/">
-                  {StaticData.homePage} &gt;
+                  {StaticData.homePage} 
                 </a>
               </div>
             </div>

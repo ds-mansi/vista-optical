@@ -301,7 +301,7 @@ const City: Template<TemplateRenderProps> = ({
     var country: any = entity.address.countryCode.toLowerCase();
     var initialregion: any = region.toString();
     var finalregion: any = initialregion.replaceAll(" ", "-");
-    var city: any = entity.address.city.toLowerCase().replaceAll(" ", "-");
+    var city: any = entity.address.city.toLowerCase();
     var initialrcity: any = city.toString();
     var finalcity: any = initialrcity.replaceAll(" ", "-");
     var string: any = name.toString();
@@ -332,7 +332,9 @@ const City: Template<TemplateRenderProps> = ({
               {entity.name}
             </Link>
           </h2>
-        </div>
+        </div >
+        <div className="flex">
+          <div style={{width:"58%"}}>
         <div className="icon-row">
           <Address address={entity.address} />
         </div>
@@ -359,6 +361,8 @@ const City: Template<TemplateRenderProps> = ({
             )}
           </div>
         </div>
+        </div>
+        <div>
         <div className="icon-row content-col availability-col">
           {/* <Availability
             c_openForShoppingAvailibility={entity.c_open_for_shopping}
@@ -385,6 +389,8 @@ const City: Template<TemplateRenderProps> = ({
             latitude={entity.yextDisplayCoordinate.latitude}
             longitude={entity.yextDisplayCoordinate.longitude}
           />
+        </div>
+        </div>
         </div>
       </div>
     );

@@ -1054,7 +1054,7 @@ nav[aria-label="Pagination"] button:disabled {
   @apply bg-white w-full pt-8 pb-16 md:py-9;
 }
 .sec-title {
-  @apply mb-4 md:mb-7;
+  @apply mb-4 md:mb-7 text-center;
 }
 .sec-title h2,
 .sec-title h1 {
@@ -1529,7 +1529,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 
 .city-page .nearby-card {
-  @apply w-full md:w-[49%]  xl:w-[32%] bg-white overflow-hidden  z-10 relative shadow-sm last:mb-0 lg:last:mb-0  mb-0 lg:mt-0  lg:relative p-3 md:p-5 border border-box-border;
+  @apply w-full md:w-[49%]  xl:w-[33%] bg-white overflow-hidden  z-10 relative shadow-sm last:mb-0 lg:last:mb-0  mb-0 lg:mt-0  lg:relative p-3 md:p-5 border border-box-border;
 }
 
 .city-page .nearby-card .availability-col {
@@ -1598,6 +1598,11 @@ nav[aria-label="Pagination"] button:disabled {
   border:1px solid #0077b4;
   /* margin-top: 25px; */
   padding:10px 25px 10px 25px;
+}
+.err-btn:hover{
+  background-color: #fff ;
+  color: #0077b4 ;
+  border: 1px solid #0077b4 ;
 }
 
 @media screen and (max-width: 767px) {
@@ -1697,6 +1702,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .view-more-btn {
   border: 1px solid black;
+  border-radius: 25px;
   padding: 10px 100px;
   background-color: #002c73;
   color: white;
