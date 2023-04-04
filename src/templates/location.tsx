@@ -559,7 +559,7 @@ const Location: Template<ExternalApiRenderData> = ({
           {/* about section */}
 
           <div style={{ position: "relative" }}>
-            <img src={c_abouts?.aboutImg?.url} />
+            <img src={c_abouts?.aboutImg?.url} alt=""/>
             <div
               style={{
                 position: "absolute",
@@ -608,6 +608,7 @@ const Location: Template<ExternalApiRenderData> = ({
                           height: "195px",
                           marginLeft: "30px",
                         }}
+                        alt=""
                       />
                     );
                   })}
