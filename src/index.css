@@ -1703,12 +1703,14 @@ nav[aria-label="Pagination"] button:disabled {
 .view-more-btn {
   border: 1px solid black;
   border-radius: 25px;
-  padding: 10px 100px;
+  padding: 10px 50px;
   background-color: #002c73;
   color: white;
   margin: auto;
   display: flex;
   border: 1px solid #002c73;
+  width: 30%;
+  
 }
 .view-more-btn:hover {
   background-color: #fff;

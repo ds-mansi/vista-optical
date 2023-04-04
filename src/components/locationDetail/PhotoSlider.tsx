@@ -15,6 +15,7 @@ const PhotoSlider = (props: any) => {
           display: "block",
           margin: "auto",
         }}
+        alt=""
       />
       <h3 style={{ textAlign: "center", color: "#002C73", fontWeight: "bold" }}>
         {element?.brandName}

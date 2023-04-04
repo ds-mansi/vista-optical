@@ -15,13 +15,16 @@ const PageLayout = ({ title, _site, global, children, banner }: Props) => {
   return (
     <>
       <div style={{ position: "relative" }}>
-        <img src={banner.bannerImage.url} aria-readonly/>
-        <div style={{ position: "absolute", top: "0" ,padding:"70px"}}>
+        <img src={banner.bannerImage.url} alt="" />
+        <div style={{ position: "absolute", top: "0", padding: "70px" }}>
           <h1>{banner.bannerLine1}</h1>
           <h3>{banner.bannerLine2}</h3>
-          <button className="banner-btn">
-            <a href={banner.bannerCta.link}>{banner.bannerCta.label}</a>
-          </button>
+          <br />
+          {/* <button className="banner-btn"> */}
+          <a className="banner-btn" href={banner.bannerCta.link}>
+            {banner.bannerCta.label}
+          </a>
+          {/* </button> */}
         </div>
       </div>
     </>

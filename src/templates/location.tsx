@@ -559,7 +559,7 @@ const Location: Template<ExternalApiRenderData> = ({
           {/* about section */}
 
           <div style={{ position: "relative" }}>
-            <img src={c_abouts?.aboutImg?.url} alt=""/>
+            <img src={c_abouts?.aboutImg?.url} alt="" />
             <div
               style={{
                 position: "absolute",
@@ -570,11 +570,12 @@ const Location: Template<ExternalApiRenderData> = ({
             >
               <h1>{c_abouts?.aboutHeading}</h1>
               <p style={{ marginTop: "20px" }}>{c_abouts?.aboutDesc}</p>
-              <button className="about-btn">
-                <a href={c_abouts?.aboutCta?.link}>
-                  {c_abouts?.aboutCta?.label}
-                </a>
-              </button>
+              {/* <button className="about-btn"> */}
+              <br />
+              <a className="about-btn" href={c_abouts?.aboutCta?.link}>
+                {c_abouts?.aboutCta?.label}
+              </a>
+              {/* </button> */}
             </div>
           </div>
           {/* about end */}
@@ -641,9 +642,11 @@ const Location: Template<ExternalApiRenderData> = ({
             {c_category?.map((ca: any) => {
               return (
                 <>
-                  <button className="category-btn">
-                    <a href={ca?.categoryCTA?.link}>{ca?.categoryCTA?.label}</a>
-                  </button>
+                  {/* <button className="category-btn"> */}
+                  <a className="category-btn" href={ca?.categoryCTA?.link}>
+                    {ca?.categoryCTA?.label}
+                  </a>
+                  {/* </button> */}
                 </>
               );
             })}
@@ -676,9 +679,11 @@ const Location: Template<ExternalApiRenderData> = ({
                 )}
               </div>
             </div>
-            <button className="view-more-btn">
-              <a href="/index.html">View More Location</a>
-            </button>
+            {/* <button className="view-more-btn"> */}
+            <a className="view-more-btn" href="/index.html">
+              <p style={{paddingLeft:"25%"}}>View More Location</p>
+            </a>
+            {/* </button> */}
           </div>
           {/* explore section start */}
           <Explore prop={c_exploreSection} />
