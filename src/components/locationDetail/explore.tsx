@@ -7,7 +7,7 @@ const Explore = (explore: any) => {
   return (
     <>
       <div style={{ position: "relative" }}>
-        <img src={explore.prop.exploreImg.url} />
+        <img src={explore.prop.exploreImg.url} alt=""/>
         <div
           style={{
             position: "absolute",
