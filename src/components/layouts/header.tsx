@@ -112,8 +112,8 @@ const Header = (props: any) => {
                 </span>
               </button>
             </a>
-            <a href={props._site.c_examCta.link}>
-              <button
+            <a className="examCta" href={props._site.c_examCta.link}>
+              {/* <button
                 style={{
                   backgroundColor: "#0077B4",
                   color: "white",
@@ -121,10 +121,10 @@ const Header = (props: any) => {
                   padding: "7px",
                   fontSize: "13px",
                   borderRadius: "4px",
-                }}
-              >
+                }} */}
+              {/* > */}
                 {props._site.c_examCta.label}
-              </button>
+              {/* </button> */}
             </a>
           </form>
         </div>

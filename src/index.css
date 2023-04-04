@@ -734,20 +734,20 @@ nav[aria-label="Pagination"] button:disabled {
   background-color: #024b86 !important;
   color: white !important;
 }
-.nearby-card .button-bx .btn:hover{
-    color: white !important;
-    background-color: #024b86 !important;
+.nearby-card .button-bx .btn:hover {
+  color: white !important;
+  background-color: #024b86 !important;
 }
 .map-section .button-bx .btn {
   @apply w-[11.25rem] md:w-[9.25rem] lg:w-[11.25rem]  bg-Dark-red hover:bg-hover-btn font-second-main-font  border-none text-white;
-  background-color: white  !important;
+  background-color: white !important;
   color: #0077b4 !important;
   border: 1px solid #0077b4 !important;
   border-radius: 30px !important;
 }
-.map-section .button-bx .btn:hover{
+.map-section .button-bx .btn:hover {
   background-color: #0077b4 !important;
-  color:white !important;
+  color: white !important;
   border: 1px solid #0077b4 !important;
 }
 .map-section .button-bx .btn.notHighligh {
@@ -759,13 +759,12 @@ nav[aria-label="Pagination"] button:disabled {
 .map-section .button-bx .btn:hover svg {
   @apply !fill-red;
 }
-.map-section .button-bx .btn+.btn{
+.map-section .button-bx .btn + .btn {
   border: 1px solid #0077b4;
   border-radius: 30px;
   color: #0077b4 !important;
-
 }
-.map-section .button-bx .btn+.btn:hover{
+.map-section .button-bx .btn + .btn:hover {
   color: #fff !important;
 }
 
@@ -786,16 +785,16 @@ nav[aria-label="Pagination"] button:disabled {
   color: white;
   margin-left: 0px;
   width: 99% !important;
-    margin-top: 5px !important;
-    font-size: 10px !important;
-    border-radius: 30px;
-    padding: 1px 10px 1px 10px;
-   padding-left: 24px;
-    background-color: #fff !important;
-    border: 1px solid #024b86 !important;
-    color: #024b86 !important;
-    text-transform: uppercase;
-    text-align: center;
+  margin-top: 5px !important;
+  font-size: 10px !important;
+  border-radius: 30px;
+  padding: 1px 10px 1px 10px;
+  padding-left: 24px;
+  background-color: #fff !important;
+  border: 1px solid #024b86 !important;
+  color: #024b86 !important;
+  text-transform: uppercase;
+  text-align: center;
 }
 /* .nearby-card .button-bx .btn:hover {
   color: #fff !important ;
@@ -943,15 +942,14 @@ nav[aria-label="Pagination"] button:disabled {
   @apply min-w-[10.25rem] w-40 py-3 uppercase font-second-main-font !border-none hover:!bg-hover-btn leading-5  md:w-auto;
   border-radius: 30px;
   background-color: #fff !important;
-  color:#002c73 !important; 
+  color: #002c73 !important;
   border: 1px solid #0077b4 !important;
   font-weight: bold;
 }
-.address-main-sec .button-bx .btn:hover{
+.address-main-sec .button-bx .btn:hover {
   background-color: #002c73 !important;
   color: white !important;
   border: 1px solid #0077b4 !important;
-
 }
 .availability-col {
   @apply mt-4  mb-0 pl-0    !flex-row flex-wrap;
@@ -1591,18 +1589,18 @@ nav[aria-label="Pagination"] button:disabled {
     @apply text-base;
   }
 }
-.err-btn{
+.err-btn {
   background-color: #0077b4;
   color: #fff;
   border-radius: 20px;
-  border:1px solid #0077b4;
+  border: 1px solid #0077b4;
   /* margin-top: 25px; */
-  padding:10px 25px 10px 25px;
+  padding: 10px 25px 10px 25px;
 }
-.err-btn:hover{
-  background-color: #fff ;
-  color: #0077b4 ;
-  border: 1px solid #0077b4 ;
+.err-btn:hover {
+  background-color: #fff;
+  color: #0077b4;
+  border: 1px solid #0077b4;
 }
 
 @media screen and (max-width: 767px) {
@@ -1710,7 +1708,6 @@ nav[aria-label="Pagination"] button:disabled {
   display: flex;
   border: 1px solid #002c73;
   width: 30%;
-  
 }
 .view-more-btn:hover {
   background-color: #fff;
@@ -1723,8 +1720,16 @@ nav[aria-label="Pagination"] button:disabled {
   color: #002c73;
   border: 1px solid #002c73;
 }
-.dr-class{
+.dr-class {
   color: #002c73;
   margin-left: 30px;
   margin-top: 5px;
+}
+.examCta {
+  background-color: #0077B4;
+  color: white;
+  font-weight: bold;
+  padding: 7px;
+  font-size: 13px;
+  border-radius: 4px;
 }
