@@ -225,13 +225,10 @@ export const OpenStausFunctions = {
           <div className={"closeddot 4"}>
             <div className="red-dot">
               <div className="hours-info ">
-                <span className="font-second-main-font "> Closed - </span>
+                <span className="hours-info font-second-main-font text-[#a6182e]"> Closed - </span>
                 {"Opens at "}
                 <span className="lowercase">
-                  {(nextInterval.start).replace(
-                    " ",
-                    ":00"
-                  )}
+                  {nextInterval.start.replace(" ", ":00")}
                 </span>{" "}
                 {week[Day]}
               </div>
@@ -246,10 +243,7 @@ export const OpenStausFunctions = {
                 <span className="font-second-main-font">Closed - </span>
                 {"Opens at "}
                 <span className="lowercase">
-                  {(nextInterval.start).replace(
-                    " ",
-                    ":00"
-                  )}
+                  {nextInterval.start.replace(" ", ":00")}
                 </span>
               </div>{" "}
             </div>{" "}
@@ -333,7 +327,6 @@ export const OpenStausFunctions = {
         }
       }
     }
-  
 
     // Not on holiday
     if (
@@ -428,7 +421,9 @@ export default function OpenClose(props: any) {
                 fill="#ad1e1f"
               />
             </svg>
-            <div className="hours-info font-second-main-font ">Closed</div>{" "}
+            <div className="hours-info font-second-main-font text-[#a6182e] ">
+              Closed
+            </div>{" "}
           </div>
         </div>
       )}

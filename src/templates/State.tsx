@@ -315,9 +315,9 @@ const region: Template<TemplateRenderProps> = ({
 
       <Footer
         _site={_site}
-        fheading={_site.c_footerNavbarHeading}
-        fnav={_site.c_footerNav}
-        tandc={_site.c_footerTAndC}
+        fheading={_site?.c_footerNavbarHeading}
+        fnav={_site?.c_footerNav}
+        tandc={_site?.c_footerTAndC}
       />
     </>
   );

@@ -103,7 +103,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   height="20"
                   alt={""}
                 />
-                <span className="map-count">V</span>
+                <span className="map-count">{result.index}</span>
               </div>
               <h2>
                 <Link
@@ -209,7 +209,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                         fill="#ad1e1f"
                       />
                     </svg>
-                    <div className="hours-info text-lg font-second-main-font closeddot">
+                    <div className="hours-info text-lg font-second-main-font closeddot text-[#e45050]">
                       Closed
                     </div>
                   </div>

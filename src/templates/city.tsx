@@ -332,65 +332,65 @@ const City: Template<TemplateRenderProps> = ({
               {entity.name}
             </Link>
           </h2>
-        </div >
-        <div className="flex">
-          <div style={{width:"58%"}}>
-        <div className="icon-row">
-          <Address address={entity.address} />
         </div>
-        {entity.mainPhone ? (
-          <div className="icon-row">
-            {/* <div className="icon">
+        <div className="flex">
+          <div style={{ width: "58%" }}>
+            <div className="icon-row">
+              <Address address={entity.address} />
+            </div>
+            {entity.mainPhone ? (
+              <div className="icon-row">
+                {/* <div className="icon">
            <img className=" " src={Phonesvg} width="20" height="20"
                         alt="" />
                         </div> */}
-            <div className="content-col">
-              <a href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a>
+                <div className="content-col">
+                  <a href={`tel:${entity.mainPhone}`}>{entity.mainPhone}</a>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+
+            <div className="icon-row">
+              <div className="content-col open-now-string">
+                {typeof entity?.hours?.reopenDate != "undefined" ? (
+                  <h6>{StaticData.tempClosed}</h6>
+                ) : (
+                  <OpenClose timezone={entity.timezone} hours={entity.hours} />
+                )}
+              </div>
             </div>
           </div>
-        ) : (
-          ""
-        )}
-
-        <div className="icon-row">
-          <div className="content-col open-now-string">
-            {typeof entity.hours?.reopenDate != "undefined" ? (
-              <h6>{StaticData.tempClosed}</h6>
-            ) : (
-              <OpenClose timezone={entity.timezone} hours={entity.hours} />
-            )}
-          </div>
-        </div>
-        </div>
-        <div>
-        <div className="icon-row content-col availability-col">
-          {/* <Availability
+          <div>
+            <div className="icon-row content-col availability-col">
+              {/* <Availability
             c_openForShoppingAvailibility={entity.c_open_for_shopping}
             c_clickCollectAvaliability={entity.c_click_collect_availability}
             c_parking_facilities={entity.c_parking_facilities}
             c_fitting_rooms={entity.c_fitting_rooms}
             hours={entity.hours}
           /> */}
-        </div>
+            </div>
 
-        <div className="button-bx">
-          <Link
-            className="btn"
-            href={url}
-            data-ya-track={`viewstore-${entity.name}`}
-            eventName={`viewstore-${entity.name}`}
-            rel="noopener noreferrer"
-          >
-            {StaticData.StoreDetailbtn}
-          </Link>
-          <GetDirection
-            buttonText={StaticData.getDirection}
-            address={entity.address}
-            latitude={entity.yextDisplayCoordinate.latitude}
-            longitude={entity.yextDisplayCoordinate.longitude}
-          />
-        </div>
-        </div>
+            <div className="button-bx">
+              <Link
+                className="btn"
+                href={url}
+                data-ya-track={`viewstore-${entity.name}`}
+                eventName={`viewstore-${entity.name}`}
+                rel="noopener noreferrer"
+              >
+                {StaticData.StoreDetailbtn}
+              </Link>
+              <GetDirection
+                buttonText={StaticData.getDirection}
+                address={entity.address}
+                latitude={entity.yextDisplayCoordinate.latitude}
+                longitude={entity.yextDisplayCoordinate.longitude}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -540,9 +540,9 @@ const City: Template<TemplateRenderProps> = ({
       </div>
       <Footer
         _site={_site}
-        fheading={_site.c_footerNavbarHeading}
-        fnav={_site.c_footerNav}
-        tandc={_site.c_footerTAndC}
+        fheading={_site?.c_footerNavbarHeading}
+        fnav={_site?.c_footerNav}
+        tandc={_site?.c_footerTAndC}
       />
     </>
   );

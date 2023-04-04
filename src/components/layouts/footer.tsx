@@ -53,7 +53,7 @@ const Footer = (props: any) => {
     // console.log(nav.label,"lav")
     return (
       <ul>
-        <li style={{ fontSize: "12px" }}><a href={nav.link}>{nav.label}</a></li>
+        <li style={{ fontSize: "12px" }}><a href={nav?.link}>{nav?.label}</a></li>
       </ul>
     );
   });

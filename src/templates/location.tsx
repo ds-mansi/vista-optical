@@ -681,7 +681,7 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
             {/* <button className="view-more-btn"> */}
             <a className="view-more-btn" href="/index.html">
-              <p style={{paddingLeft:"25%"}}>View More Location</p>
+              <p style={{ paddingLeft: "25%" }}>View More Location</p>
             </a>
             {/* </button> */}
           </div>
@@ -690,9 +690,9 @@ const Location: Template<ExternalApiRenderData> = ({
           {/* explore section end */}
           <Footer
             _site={_site}
-            fheading={_site.c_footerNavbarHeading}
-            fnav={_site.c_footerNav}
-            tandc={_site.c_footerTAndC}
+            fheading={_site?.c_footerNavbarHeading}
+            fnav={_site?.c_footerNav}
+            tandc={_site?.c_footerTAndC}
           />
         </AnalyticsScopeProvider>
       </AnalyticsProvider>

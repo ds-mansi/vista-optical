@@ -288,10 +288,10 @@ const country: Template<TemplateRenderProps> = ({
   return (
     <>
       {/* header call */}
-      <Header _site={_site} logo={_site.c_logo} nav={_site.c_headerNavbar} />
+      <Header _site={_site} logo={_site?.c_logo} nav={_site?.c_headerNavbar} />
       {/* header ends */}
-      <PageLayout global={_site} banner={_site.c_banner} />
-      {/* breadcrumb call */}
+      <PageLayout global={_site} banner={_site?.c_banner} />
+      {/* breadcrumb start */}
       <BreadCrumbs
         name={regionNames.of(name)}
         address={undefined}
@@ -317,9 +317,9 @@ const country: Template<TemplateRenderProps> = ({
       {/* Footer starts */}
       <Footer
         _site={_site}
-        fheading={_site.c_footerNavbarHeading}
-        fnav={_site.c_footerNav}
-        tandc={_site.c_footerTAndC}
+        fheading={_site?.c_footerNavbarHeading}
+        fnav={_site?.c_footerNav}
+        tandc={_site?.c_footerTAndC}
       />
       {/* footer ends */}
     </>

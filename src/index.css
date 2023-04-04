@@ -1689,7 +1689,7 @@ nav[aria-label="Pagination"] button:disabled {
   font-size: 15px;
 }
 .ctaBtn {
-  background-color: #002c73;
+  background-color: #0077B4;
   width: 33%;
   color: #fff;
   margin: auto;
@@ -1697,6 +1697,14 @@ nav[aria-label="Pagination"] button:disabled {
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 10px;
+  border-radius: 25px;
+  border: 1px solid #0077B4;
+}
+.ctaBtn:hover{
+  background-color: #fff;
+  color: #0077B4;
+  border-radius: 25px;
+  border: 1px solid #0077B4;
 }
 .view-more-btn {
   border: 1px solid black;

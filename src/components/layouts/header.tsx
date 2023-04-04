@@ -33,7 +33,7 @@ const Header = (props: any) => {
     // console.log(icon.url,"url123")
     return (
       <>
-        <img src={icon.url} style={{ paddingRight: "20px" }}  alt=""/>
+        <img src={icon.url} style={{ paddingRight: "20px" }} alt="" />
       </>
     );
   });
@@ -41,7 +41,7 @@ const Header = (props: any) => {
     <>
       <div>
         <p style={{ color: "#002C73", fontSize: "12px", marginLeft: "150px" }}>
-          {props._site.c_upperHeaderText}
+          {props?._site?.c_upperHeaderText}
         </p>
       </div>
       <div
@@ -52,7 +52,7 @@ const Header = (props: any) => {
         }}
       >
         <img
-          src={props.logo.url}
+          src={props?.logo?.url}
           style={{
             height: "65px",
             width: "140px",
@@ -65,7 +65,7 @@ const Header = (props: any) => {
             display: "flex",
           }}
         >
-          <img src={HeaderMarker} style={{ height: "30px" }}  alt=""/>
+          <img src={HeaderMarker} style={{ height: "30px" }} alt="" />
           <form
             method="get"
             id="HeaderSearchForm"
@@ -91,7 +91,7 @@ const Header = (props: any) => {
                 borderBottomLeftRadius: "4px",
               }}
             />
-            <a href={props._site.c_storeHead.link}>
+            <a href={props?._site?.c_storeHead?.link}>
               <button
                 type="submit"
                 className="search-button Header-submit"
@@ -108,11 +108,11 @@ const Header = (props: any) => {
                 }}
               >
                 <span className="Header-submitLabel">
-                  {props._site.c_storeHead.label}
+                  {props?._site?.c_storeHead?.label}
                 </span>
               </button>
             </a>
-            <a className="examCta" href={props._site.c_examCta.link}>
+            <a className="examCta" href={props?._site?.c_examCta?.link}>
               {/* <button
                 style={{
                   backgroundColor: "#0077B4",
@@ -123,7 +123,7 @@ const Header = (props: any) => {
                   borderRadius: "4px",
                 }} */}
               {/* > */}
-                {props._site.c_examCta.label}
+              {props?._site?.c_examCta?.label}
               {/* </button> */}
             </a>
           </form>

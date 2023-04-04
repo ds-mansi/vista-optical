@@ -231,15 +231,10 @@ const SearchLayout = (props: any): JSX.Element => {
       FirstLoad();
     }
 
-
-
-    let params = (new URL(window.location.href)).searchParams;
+    let params = new URL(window.location.href).searchParams;
     let addresssearch = params.get("inputStoreValue");
-    setInputValue('');
-    getCoordinates(addresssearch); 
-
-
-
+    setInputValue("");
+    getCoordinates(addresssearch);
   }, []);
 
   return (
@@ -322,9 +317,7 @@ const SearchLayout = (props: any): JSX.Element => {
                 {
                   entityType: "location",
                   fieldApiName: "address.countryCode",
-
                 },
-                
               ]}
               handleInputValue={handleInputValue}
               //handleSetUserShareLocation={handleSetUserShareLocation}
@@ -336,7 +329,9 @@ const SearchLayout = (props: any): JSX.Element => {
               id="search-location-button"
               onClick={Findinput}
             >
-              <span dangerouslySetInnerHTML={{ __html: search_icn }} />
+              <span>
+                <b>GO</b>
+              </span>
             </button>
           </div>
 

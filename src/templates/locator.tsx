@@ -20,11 +20,11 @@ import {
   Pagination,
 } from "@yext/search-ui-react";
 import { Location } from "../types/search/locations";
-import MapboxMap from "../components/MapboxMap";
-import MapPin from "../components/MapPin";
+// import MapboxMap from "../components/MapboxMap";
+// import MapPin from "../components/MapPin";
 import LocationCard from "../components/locatorPage/LocationCard";
 import PageLayout from "../components/layouts/PageLayout";
-import Geocode from "react-geocode";
+// import Geocode from "react-geocode";
 import UseMyLocation from "../components/locatorPage/UseMyLocation";
 import { Address } from "../types/search/locations";
 import { useSearchActions } from "@yext/search-headless-react";
@@ -251,9 +251,9 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
 
           <Footer
             _site={_site}
-            fheading={_site.c_footerNavbarHeading}
-            fnav={_site.c_footerNav}
-            tandc={_site.c_footerTAndC}
+            fheading={_site?.c_footerNavbarHeading}
+            fnav={_site?.c_footerNav}
+            tandc={_site?.c_footerTAndC}
           />
         </AnalyticsScopeProvider>
       </AnalyticsProvider>
