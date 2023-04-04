@@ -130,7 +130,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                 <Address address={address} />
 
                 <div className="flex mt-2">
-                  <img src={phone} style={{ height: "30px" }} />
+                  <img src={phone} style={{ height: "30px" }} alt=""/>
 
                   <a href={"tel:" + mainPhone} style={{ fontSize: "18px" }}>
                     {mainPhone}

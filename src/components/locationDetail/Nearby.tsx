@@ -129,6 +129,7 @@ export default function Nearby(props: any) {
                     <img
                       src={timesvg}
                       style={{ height: "25px", width: "25px" }}
+                      alt=""
                     />
                   </div>
                   <div>
@@ -153,7 +154,7 @@ export default function Nearby(props: any) {
                   </div>
                 </div>
                 <div className="flex ml-1 mt-2">
-                  <img src={phone} style={{ height: "30px"}} />
+                  <img src={phone} style={{ height: "30px"}} alt=""/>
                   {/* <div>{mainPhone}</div> */}
                   <Link
                     eventName={"PhoneNumber"}
