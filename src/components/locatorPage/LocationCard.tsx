@@ -103,7 +103,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                   height="20"
                   alt={""}
                 />
-                <span className="map-count">{result.index}</span>
+                <span className="map-count">V</span>
               </div>
               <h2>
                 <Link
