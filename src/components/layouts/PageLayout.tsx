@@ -15,7 +15,7 @@ const PageLayout = ({ title, _site, global, children, banner }: Props) => {
   return (
     <>
       <div style={{ position: "relative" }}>
-        <img src={banner.bannerImage.url} />
+        <img src={banner.bannerImage.url} aria-readonly/>
         <div style={{ position: "absolute", top: "0" ,padding:"70px"}}>
           <h1>{banner.bannerLine1}</h1>
           <h3>{banner.bannerLine2}</h3>
