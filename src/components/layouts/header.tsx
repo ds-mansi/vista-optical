@@ -33,7 +33,7 @@ const Header = (props: any) => {
     // console.log(icon.url,"url123")
     return (
       <>
-        <img src={icon.url} style={{ paddingRight: "20px" }} />
+        <img src={icon.url} style={{ paddingRight: "20px" }}  alt=""/>
       </>
     );
   });
@@ -58,13 +58,14 @@ const Header = (props: any) => {
             width: "140px",
             margin: "10px 50px 10px 150px",
           }}
+          alt=""
         />
         <div
           style={{
             display: "flex",
           }}
         >
-          <img src={HeaderMarker} style={{ height: "30px" }} />
+          <img src={HeaderMarker} style={{ height: "30px" }}  alt=""/>
           <form
             method="get"
             id="HeaderSearchForm"
