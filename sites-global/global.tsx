@@ -1,15 +1,18 @@
-export const stagingBaseurl = "https://master-even--sunny--swift-sbx-pgsdemo-com.sbx.preview.pagescdn.com/";
+export const stagingBaseurl =
+  "https://master-even--sunny--swift-sbx-pgsdemo-com.sbx.preview.pagescdn.com/";
 export const cookieText =
   " We use cookies on our website. Some are essential to enable to site to function, others are analytical and help us monitor site usage, whilst some are used for the personalisation of ads. You are free to manage this via your browser setting at any time. To learn more about how we use these cookies, please see our ";
 export const cookiesUrl = "https://www.matalan.co.uk/corporate/cookies";
-export const baseuRL = "https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=500"
+export const baseuRL =
+  "https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=500";
 export const apikey_for_entity = "a4748e23747a8469a067f29fab740d20";
-export const favicon="https://www.kindpng.com/picc/m/563-5639657_vista-optical-hd-png-download.png";
+export const favicon =
+  "https://www.kindpng.com/picc/m/563-5639657_vista-optical-hd-png-download.png";
 export const apiKey = "14f1b4836832e5b073458d559e86eb4d";
 export const googleApikey = "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18";
-export const regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
-export const AnalyticsEnableDebugging  = true;
-export const AnalyticsEnableTrackingCookie  = true;
+export const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+export const AnalyticsEnableDebugging = true;
+export const AnalyticsEnableTrackingCookie = true;
 export const conversionDetailsDirection = {
   cid: "",
   cv: "1",
@@ -19,14 +22,11 @@ export const conversionDetailsPhone = {
   cid: "",
   cv: "2",
 };
-export const center_latitude=47.116386;
-export const center_longitude=-101.299591;
-
-
-
+export const center_latitude = 47.116386;
+export const center_longitude = -101.299591;
 
 /* All Svgs */
-export const Cross = `<svg xmlns="http://www.w3.org/2000/svg" width="20.953" height="20.953" viewBox="0 0 20.953 20.953"><path id="Icon_ionic-md-close" data-name="Icon ionic-md-close" d="M28.477,9.619l-2.1-2.1L18,15.9,9.619,7.523l-2.1,2.1L15.9,18,7.523,26.381l2.1,2.1L18,20.1l8.381,8.381,2.1-2.1L20.1,18Z" transform="translate(-7.523 -7.523)" fill="#B1B1B1"></path></svg>`
+export const Cross = `<svg xmlns="http://www.w3.org/2000/svg" width="20.953" height="20.953" viewBox="0 0 20.953 20.953"><path id="Icon_ionic-md-close" data-name="Icon ionic-md-close" d="M28.477,9.619l-2.1-2.1L18,15.9,9.619,7.523l-2.1,2.1L15.9,18,7.523,26.381l2.1,2.1L18,20.1l8.381,8.381,2.1-2.1L20.1,18Z" transform="translate(-7.523 -7.523)" fill="#B1B1B1"></path></svg>`;
 export const breadcrumbhome = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20.002" viewBox="0 0 20 20.002">
 <path d="M877,4760h5a1,1,0,0,0,1-1v-8.59l.293.3a1,1,0,1,0,1.414-1.42l-9-9a1,1,0,0,0-1.414,0l-9,9a1,1,0,0,0,1.414,1.42l.293-.3V4759a1,1,0,0,0,1,1h5a1,1,0,0,0,1-1v-5h2v5A1,1,0,0,0,877,4760Zm4-2h-3v-5a1,1,0,0,0-1-1h-4a1,1,0,0,0-1,1v5h-3v-9.59l6-6,6,6Z" transform="translate(-865 -4739.998)" fill="#02a6db" fill-rule="evenodd"/>
 </svg>`;
@@ -112,7 +112,7 @@ export const logo = `<svg class="hidden lg:block" xmlns="http://www.w3.org/2000/
 </g>
 </svg>`;
 
-export const humburgerIcon =`<svg class="humburger-i" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+export const humburgerIcon = `<svg class="humburger-i" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
   <path d="M21,18 C21.5522847,18 22,18.4477153 22,19 C22,19.5522847 21.5522847,20 21,20 L3,20 C2.44771525,20 2,19.5522847 2,19 C2,18.4477153 2.44771525,18 3,18 L21,18 Z M21,11 C21.5522847,11 22,11.4477153 22,12 C22,12.5522847 21.5522847,13 21,13 L3,13 C2.44771525,13 2,12.5522847 2,12 C2,11.4477153 2.44771525,11 3,11 L21,11 Z M21,4 C21.5522847,4 22,4.44771525 22,5 C22,5.55228475 21.5522847,6 21,6 L3,6 C2.44771525,6 2,5.55228475 2,5 C2,4.44771525 2.44771525,4 3,4 L21,4 Z" id="Combined-Shape" fill="#383838" fill-rule="nonzero"></path>
 </g>
@@ -123,6 +123,6 @@ export const humburgerIcon =`<svg class="humburger-i" viewBox="0 0 24 24" versio
 			<path d="M-52.7,65L-79,38.7l5.7-5.7L-47,59.3L-20.7,33l5.7,5.7L-41.3,65L-15,91.3     l-5.7,5.7L-47,70.7L-73.3,97l-5.7-5.7L-52.7,65z"></path>
 		</g>
 	</g>
-</svg>`
+</svg>`;
 
 export const search_icn = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 30.938 30.579"><g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(-3 -3)"><path id="Path_39" data-name="Path 39" d="M24.691,14.6A10.1,10.1,0,1,1,14.6,4.5,10.1,10.1,0,0,1,24.691,14.6Z" transform="translate(0 0)" fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path><path id="Path_40" data-name="Path 40" d="M35.066,34.707,24.975,24.975" transform="translate(-3.249 -3.249)" fill="white" stroke="#111111" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></g></svg>`;
