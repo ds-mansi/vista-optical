@@ -130,7 +130,11 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                 <Address address={address} />
 
                 <div className="flex mt-2">
-                  <img src={phone} style={{ height: "30px" }} alt=""/>
+                  <img
+                    src={phone}
+                   
+                    alt=""
+                  />
 
                   <a href={"tel:" + mainPhone} style={{ fontSize: "18px" }}>
                     {mainPhone}
@@ -214,10 +218,8 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                     </div>
                   </div>
                 )}
-
-                
               </div>
-              
+
               <div className="button-bx">
                 <Link
                   type="button"
@@ -248,10 +250,8 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
               </div>
             </div>
             <div>
-                  <h4 className="dr-class">
-                    {result?.rawData?.c_drName}
-                  </h4>
-                </div>
+              <h4 className="dr-class">{result?.rawData?.c_drName}</h4>
+            </div>
           </div>
         </div>
       </div>

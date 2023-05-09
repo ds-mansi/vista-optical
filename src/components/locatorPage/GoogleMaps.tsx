@@ -15,7 +15,7 @@ import Mapicon2 from "../../images/MGMpin.svg";
 import clustericon from "../../images/cluster.svg";
 import mapimage from "../../images/map.svg";
 import timesvg from "../../images/watch-icn.svg";
-import Hovermap from "../../images/MGMhover1.svg"
+import Hovermap from "../../images/MGMhover1.svg";
 import Hours from "../commons/hours";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import Nav from "../layouts/Nav";
@@ -69,7 +69,7 @@ let mapMarkerClusterer: { clearMarkers: () => void } | null = null;
 const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
   googleMapsContainer: "locator-map-block",
 };
-  
+
 /**
  * A component that renders a map with markers to show result locations.
  *
@@ -101,7 +101,7 @@ function UnwrappedGoogleMaps({
   const [downinfo, setDownInfo] = useState(true);
   const [hover, setHover] = useState(true);
   const loading = useSearchState((s) => s.searchStatus.isLoading);
- 
+
   let isHover = true;
   const searchZoom: number | number | null | undefined = null;
   let currentMapZoom: number | undefined = 0;
@@ -117,9 +117,9 @@ function UnwrappedGoogleMaps({
   };
 
   const refLocationResults = useRef({});
-  
+
   const locationResults = useFetchResults() || [];
-  
+
   refLocationResults.current = locationResults;
 
   locationResults.length > 0
@@ -209,7 +209,7 @@ function UnwrappedGoogleMaps({
   const Usermarker1 = new google.maps.Marker({
     position,
     map,
-    icon: UserMarker
+    icon: UserMarker,
   });
   usermarker.current.push(Usermarker1);
 
@@ -276,7 +276,6 @@ function UnwrappedGoogleMaps({
         })
       );
     } else if (markers1.current.length > 0 && map && check && hover) {
-
       setTimeout(function () {
         const bounds = new google.maps.LatLngBounds();
 
@@ -355,18 +354,17 @@ function UnwrappedGoogleMaps({
 
   if (infoWindow.current != null) {
     infoWindow.current.addListener("closeclick", () => {
-     setHover(true);
+      setHover(true);
       info = false;
       infoWindow.current.close();
-      
-      locationResults.map((result :any, index:any) => {
-        console.log(result.name,"Index");
+
+      locationResults.map((result: any, index: any) => {
+        console.log(result.name, "Index");
         const resultelement = document.querySelectorAll(
           `.result-list-inner-${result.name}`
         );
-        
+
         for (let index = 0; index < resultelement.length; index++) {
-          
           resultelement[index].classList.remove("active", "fixed-hover");
         }
       });
@@ -400,9 +398,8 @@ function UnwrappedGoogleMaps({
     marker_hover_icon: any,
     marker_icon: any
   ) {
-    
     const elements = document.querySelectorAll(".result");
-    
+
     for (let index = 0; index < elements.length; index++) {
       elements[index].addEventListener("mouseover", (e) => {
         if (hover) {
@@ -502,14 +499,14 @@ function UnwrappedGoogleMaps({
     const string1: any = name.toString();
     const result1: any = string1.replaceAll(" ", "-");
     var link =
-    country +
-    "/" +
-    region +
-    "/" +
-    city +
-    "/" +
-    result.rawData.slug?.toString() +
-    ".html";
+      country +
+      "/" +
+      region +
+      "/" +
+      city +
+      "/" +
+      result.rawData.slug?.toString() +
+      ".html";
     if (!result.rawData.slug) {
       url = `/${link}.html`;
     } else {
@@ -540,16 +537,32 @@ function UnwrappedGoogleMaps({
               ""
             )}
           </div>
-          {result.rawData.mainPhone?
-    <div className="icon-row">
-      <div className="icon"> <img className=" " src={Phonesvg} width="20" height="20" alt="" />
-      </div>
-      <div className="content-col">
-        <h6>Telephone</h6>
-        <a id="address" className="notHighlight" href={`tel:${result.rawData.mainPhone}`}>
-          {result.rawData.mainPhone}</a>
-      </div>
-    </div>:''}
+          {result.rawData.mainPhone ? (
+            <div className="icon-row">
+              <div className="icon">
+                {" "}
+                <img
+                  className=" "
+                  src={Phonesvg}
+                  width="20"
+                  height="20"
+                  alt=""
+                />
+              </div>
+              <div className="content-col">
+                <h6>Telephone</h6>
+                <a
+                  id="address"
+                  className="notHighlight"
+                  href={`tel:${result.rawData.mainPhone}`}
+                >
+                  {result.rawData.mainPhone}
+                </a>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
 
           {result.rawData.hours && result.rawData.hours.reopenDate ? (
             ""

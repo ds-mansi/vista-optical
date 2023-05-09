@@ -254,42 +254,39 @@ const region: Template<TemplateRenderProps> = ({
   } = document;
   // slug on country page if state contains more than 1 cities or region contain only one city
   const childrenDivs = dm_directoryChildren
-    ? dm_directoryChildren.map((entity: any) => {
-        let detlslug;
+  ? dm_directoryChildren.map((entity: any) => {
+      let detlslug;
 
-        if (typeof entity.dm_directoryChildren != "undefined") {
-          if (entity.dm_baseEntityCount == 1) {
-            entity.dm_directoryChildren.map((res: any) => {
-              // console.log(res, "res");
-              let detlslug1 = "";
+      if (typeof entity.dm_directoryChildren != "undefined") {
+        if (entity.dm_baseEntityCount == 1) {
+          entity.dm_directoryChildren.map((res: any) => {
+            // console.log(res, "res");
+            let detlslug1 = "";
 
-              if (!res.slug) {
-                let slugString = res.slug + "-" + res.name;
-                let slug = slugString;
-                detlslug1 = `${slug}.html`;
-              } else {
-                detlslug1 = slug + "/" + entity.slug + "/" + res.slug + ".html";
-                // detlslug1 = `/${res.slug.toString()}.html`;
-                // console.log(detlslug1, "d1state");
-              }
+            if (!res.slug) {
+              let slugString = res.id + "-" + res.name.toLowerCase();
+              let slug = slugString;
+              detlslug1 = `${slug}.html`;
+            } else {
+              detlslug1 = `${res.slug.toString()}.html`;
+            }
 
-              detlslug = detlslug1;
-            });
-          } else {
-            detlslug = slug + "/" + entity.slug + ".html";
-            // console.log(detlslug,"state")
-          }
+            detlslug = detlslug1;
+          });
+        } else {
+          detlslug = "gb/" + slug + "/" + entity.slug + ".html";
         }
+      }
 
-        return (
-          <li className=" storelocation-category">
-            <a key={entity.slug} href={detlslug}>
-              {entity.name} ({entity.dm_baseEntityCount})
-            </a>
-          </li>
-        );
-      })
-    : null;
+      return (
+        <li className=" storelocation-category">
+          <a key={entity.slug} href={stagingBaseurl + detlslug}>
+            {entity.name} ({entity.dm_baseEntityCount})
+          </a>
+        </li>
+      );
+    })
+  : null;
 
   // let bannerimage = c_banner_image && c_banner_image.image.url;
   return (

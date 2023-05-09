@@ -366,7 +366,7 @@ body.mapView .mobile-btns .btn.mapBtn {
   margin-bottom: 5px !important;
   font-size: 12px !important;
   border-radius: 30px;
-  padding: 2px 22px 2px 22px;
+  padding: 2px 20px 2px 20px;
   width: 100%;
   background-color: #fff !important;
   border: 1px solid #024b86 !important;
@@ -428,6 +428,8 @@ body.mapView .mobile-btns .btn.mapBtn {
 }
 .result-inner {
   @apply p-4;
+  /* border-left: 1px solid #0077B4; */
+  margin-left: 8px;
 }
 .button-bx {
   @apply mt-2.5 justify-around  ml-6;

@@ -50,7 +50,7 @@ const Header = (props: any) => {
           justifyContent: "space-between",
           paddingRight: "40px",
         }}
-      >
+      ><a href="#">
         <img
           src={props?.logo?.url}
           style={{
@@ -59,7 +59,7 @@ const Header = (props: any) => {
             margin: "10px 50px 10px 150px",
           }}
           alt=""
-        />
+        /></a>
         <div
           style={{
             display: "flex",

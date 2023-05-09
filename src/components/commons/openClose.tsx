@@ -425,6 +425,7 @@ export default function OpenClose(props: any) {
               Closed
             </div>{" "}
           </div>
+          
         </div>
       )}
     </>

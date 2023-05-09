@@ -81,9 +81,9 @@ const Footer = (props: any) => {
     <>
       <div style={{ backgroundColor: "#002C73", color: "white" }}>
         <div className="flex" style={{ alignItems: "center" }}>
-          <h2 style={{ padding: "50px 70px" }}>
+          <a href="#"><h2 style={{ padding: "50px 70px" }}>
             {props?._site?.c_footerMainHeading}
-          </h2>
+          </h2></a>
           <div className="flex m-auto" style={{ paddingLeft: "100px" }}>
             {fhead}
           </div>
