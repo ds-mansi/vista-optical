@@ -61,13 +61,13 @@ export default function Nearby(props: any) {
         var region: any = location.address.region
           ?.toLowerCase()
           .replaceAll(" ", "-");
-        var country: any = location.address.countryCode?.toLowerCase();
+        var country: any = location.address.countryCode?.toLowerCase().replaceAll(" ", "-");
         var initialregion: any = region.toString();
         var finalregion: any = initialregion.replaceAll(" ", "-");
-        var city: any = location.address.city?.toLowerCase();
-        var initialrcity: any = city.toString();
+        var city: any = location.address.city?.toLowerCase().replaceAll(" ", "-");
+        var initialrcity: any = city.toString().replaceAll(" ", "-");
         var finalcity: any = initialrcity.replaceAll(" ", "-");
-        var string: any = name.toString();
+        var string: any = name.toString().replaceAll(" ", "-");
         let result1: any = string.replaceAll(" ", "-");
         var link =
           country +
