@@ -269,39 +269,39 @@ const region: Template<TemplateRenderProps> = ({
       url1 = url?.replace(/(\b\S.+\b)(?=.*\1)/g, "")?.trim();
       if (entity?.dm_baseEntityCount == 1) {
         if (
-          entity.dm_directoryChildren &&
-          entity.dm_directoryChildren[0]?.slug
+          entity?.dm_directoryChildren &&
+          entity?.dm_directoryChildren[0]?.slug
         ) {
           return (
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
               <Link
-                key={entity.slug}
+                key={entity?.slug}
                 href={
                   slug +
                   "/" +
-                  entity.slug +
+                  entity?.slug +
                   "/" +
-                  entity.dm_directoryChildren[0].slug +
+                  entity?.dm_directoryChildren[0].slug +
                   ".html"
                 }
                 //href={slug + "/" + entity.slug + ".html"}
                 className="text-blue hover:text-red"
-                eventName={entity.name}
+                eventName={entity?.name}
               >
-                {entity.name} ({entity.dm_baseEntityCount})
+                {entity?.name} ({entity?.dm_baseEntityCount})
               </Link>
             </div>
           );
         } else {
-          let name: any = entity.dm_directoryChildren[0].name.toLowerCase();
-          let string: any = name.toString();
-          let removeSpecialCharacters = string.replace(
+          let name: any = entity?.dm_directoryChildren[0]?.name?.toLowerCase();
+          let string: any = name?.toString();
+          let removeSpecialCharacters = string?.replace(
             /[&\/\\#^+()$~%.'":*?<>{}!@]/g,
             ""
           );
-          let result: any = removeSpecialCharacters.replaceAll("  ", "-");
-          let finalString: any = result.replaceAll(" ", "-");
-          url = `${entity.dm_directoryChildren[0].id}-${finalString}.html`;
+          let result: any = removeSpecialCharacters?.replaceAll("  ", "-");
+          let finalString: any = result?.replaceAll(" ", "-");
+          url = `${entity?.dm_directoryChildren[0]?.id}-${finalString}.html`;
           return (
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
               <Link
@@ -311,7 +311,7 @@ const region: Template<TemplateRenderProps> = ({
                 rel="noopener noreferrer"
                 eventName={`LocationName`}
               >
-                {entity.name} ({entity.dm_baseEntityCount})
+                {entity?.name} ({entity?.dm_baseEntityCount})
               </Link>
             </div>
           );
@@ -320,13 +320,13 @@ const region: Template<TemplateRenderProps> = ({
         return (
           <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
             <Link
-              key={entity.slug}
-              href={slug + "/" + entity.slug + ".html"}
+              key={entity?.slug}
+              href={slug + "/" + entity?.slug + ".html"}
               className="text-blue hover:text-red"
               rel="noopener noreferrer"
               eventName={`name`}
             >
-              {entity.name} ({entity.dm_baseEntityCount})
+              {entity?.name} ({entity?.dm_baseEntityCount})
             </Link>
           </div>
         );
@@ -355,8 +355,8 @@ const region: Template<TemplateRenderProps> = ({
     item: {
       "@id": `${stagingBaseurl}${
         dm_directoryParents[1]?.slug
-      }/${document.slug.toString()}?.html`,
-      name: document.name,
+      }/${document?.slug?.toString()}.html`,
+      name: document?.name,
     },
   });
 
