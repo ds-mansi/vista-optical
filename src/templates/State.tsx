@@ -270,7 +270,7 @@ const region: Template<TemplateRenderProps> = ({
       if (entity?.dm_baseEntityCount == 1) {
         if (
           entity.dm_directoryChildren &&
-          entity.dm_directoryChildren[0].slug
+          entity.dm_directoryChildren[0]?.slug
         ) {
           return (
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
@@ -355,7 +355,7 @@ const region: Template<TemplateRenderProps> = ({
     item: {
       "@id": `${stagingBaseurl}${
         dm_directoryParents[1]?.slug
-      }/${document.slug.toString()}.html`,
+      }/${document.slug.toString()}?.html`,
       name: document.name,
     },
   });
