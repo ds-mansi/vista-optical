@@ -69,7 +69,7 @@ export const config: TemplateConfig = {
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   let url = "";
-  document.dm_directoryParents.map((i: any) => {
+  document?.dm_directoryParents?.map((i: any) => {
     if (i.meta.entityType.id == "ce_country") {
       url += i.slug + "/";
     }
@@ -89,7 +89,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
   var canonical = "";
-  document.dm_directoryParents.map((entity: any) => {
+  document?.dm_directoryParents?.map((entity: any) => {
     canonical = entity.slug.toLowerCase();
   });
 
@@ -254,12 +254,12 @@ const region: Template<TemplateRenderProps> = ({
   } = document;
   // slug on country page if state contains more than 1 cities or region contain only one city
   const childrenDivs = dm_directoryChildren
-  ? dm_directoryChildren.map((entity: any) => {
+  ? dm_directoryChildren?.map((entity: any) => {
       let detlslug;
 
       if (typeof entity.dm_directoryChildren != "undefined") {
         if (entity.dm_baseEntityCount == 1) {
-          entity.dm_directoryChildren.map((res: any) => {
+          entity?.dm_directoryChildren?.map((res: any) => {
             // console.log(res, "res");
             let detlslug1 = "";
 
