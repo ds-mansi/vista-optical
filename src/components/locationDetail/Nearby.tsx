@@ -312,7 +312,7 @@ const NearByLocation = (entities: props) => {
                 "/" +
                 e?.slug?.toString() +
                 ".html";
-              console.log(link,"link")
+              // console.log(link,"link")
               //  link=e.id?.toString()
               if (!e?.slug) {
                 url = `/${link}.html`;
