@@ -354,7 +354,7 @@ const region: Template<TemplateRenderProps> = ({
     position: currentIndex + 1,
     item: {
       "@id": `${stagingBaseurl}${
-        dm_directoryParents[1].slug
+        dm_directoryParents[1]?.slug
       }/${document.slug.toString()}.html`,
       name: document.name,
     },
