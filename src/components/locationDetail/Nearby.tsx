@@ -246,7 +246,7 @@ const NearByLocation = (entities: props) => {
     })
 
     entities.prop.response.results && entities.prop.response.results.map((i: any, index: any) => {
-      console.log(i,"i")
+      // console.log(i,"i")
       arr.push({
         slug: i.data.slug,
         name: i.data.name,
@@ -271,7 +271,7 @@ const NearByLocation = (entities: props) => {
         <div className="nearby-sec-inner">
           {data &&
             data.map((e: any, index: any) => {
-console.log(e,"e")
+// console.log(e,"e")
               // let url = "";
               // let slugString = "";
               // if (!e.slug) {
@@ -289,9 +289,9 @@ console.log(e,"e")
               //   url = `${e.slug.toString()}`;
               // }
 
-              console.log(location,"location")
+              // console.log(location,"location")
               let url = "";
-              console.log(e.slug,"id")
+              // console.log(e.slug,"id")
               var name: any = e.name?.toLowerCase();
               var mainPhone: any = e.mainPhone;
               var country: any = e?.address?.countryCode?.toLowerCase();

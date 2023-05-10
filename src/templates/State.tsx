@@ -18,6 +18,7 @@ import { favicon, stagingBaseurl } from "../../sites-global/global";
 import { StaticData } from "../../sites-global/staticData";
 import Footer from "../components/layouts/footer";
 import Header from "../components/layouts/header";
+import { Link } from "@yext/pages/components";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -68,6 +69,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
+  // console.log(document.slug, " document.slug");
   let url = "";
   document?.dm_directoryParents?.map((i: any) => {
     if (i.meta.entityType.id == "ce_country") {
@@ -97,7 +99,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: `${
       document.c_meta_title
         ? document.c_meta_title
-        : `Vista Optical Stores in ${document.name} | Find a Local Store`
+        : `Kurt Geiger Stores in ${document.name} | Find a Local Store`
     }`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
@@ -116,7 +118,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Use this page to find your nearest Vista Optical store in ${document.name} and discover the location details you need to visit us today.`
+              : `Use this page to find your nearest Kurt Geiger store in ${document.name} and discover the location details you need to visit us today.`
           }`,
         },
       },
@@ -181,7 +183,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Vista Optical Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Kurt Geiger Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -224,7 +226,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Vista Optical Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Kurt Geiger Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -239,54 +241,124 @@ const region: Template<TemplateRenderProps> = ({
 }) => {
   const {
     name,
-    description,
-    c_globalData,
+    _site,
+    slug,
+    address,
+    c_banner_image,
+    c_bannerHeading,
     dm_directoryParents,
     dm_directoryChildren,
-    c_addressRegionDisplayName,
-    //seo section
-    c_canonical,
-    c_metaDescription,
-    c_metaTitle,
-    _site,
-    __meta,
-    slug,
   } = document;
-  // slug on country page if state contains more than 1 cities or region contain only one city
-  const childrenDivs = dm_directoryChildren
-  ? dm_directoryChildren?.map((entity: any) => {
-      let detlslug;
+  var sortedChildren = dm_directoryChildren.sort(function (a: any, b: any) {
+    var a = a.name;
+    var b = b.name;
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
 
-      if (typeof entity.dm_directoryChildren != "undefined") {
-        if (entity.dm_baseEntityCount == 1) {
-          entity?.dm_directoryChildren?.map((res: any) => {
-            // console.log(res, "res");
-            let detlslug1 = "";
+  let slugString = "/";
+  document.dm_directoryParents.forEach((e: any) => {
+    slugString = e.slug + "/";
+  });
+  const childrenDivs =
+    dm_directoryChildren &&
+    dm_directoryChildren?.map((entity: any) => {
+      let url: any = "";
 
-            if (!res.slug) {
-              let slugString = res.id + "-" + res.name.toLowerCase();
-              let slug = slugString;
-              detlslug1 = `${slug}.html`;
-            } else {
-              detlslug1 = `${res.slug.toString()}.html`;
-            }
-
-            detlslug = detlslug1;
-          });
+      url = document.slug.toString();
+      let url1: any = "";
+      url1 = url.replace(/(\b\S.+\b)(?=.*\1)/g, "").trim();
+      if (entity.dm_baseEntityCount == 1) {
+        if (
+          entity.dm_directoryChildren &&
+          entity.dm_directoryChildren[0].slug
+        ) {
+          return (
+            <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
+              <Link
+                key={entity.slug}
+                href={
+                  slug +
+                  "/" +
+                  entity.slug +
+                  "/" +
+                  entity.dm_directoryChildren[0].slug +
+                  ".html"
+                }
+                //href={slug + "/" + entity.slug + ".html"}
+                className="text-blue hover:text-red"
+                eventName={entity.name}
+              >
+                {entity.name} ({entity.dm_baseEntityCount})
+              </Link>
+            </div>
+          );
         } else {
-          detlslug = "gb/" + slug + "/" + entity.slug + ".html";
+          let name: any = entity.dm_directoryChildren[0].name.toLowerCase();
+          let string: any = name.toString();
+          let removeSpecialCharacters = string.replace(
+            /[&\/\\#^+()$~%.'":*?<>{}!@]/g,
+            ""
+          );
+          let result: any = removeSpecialCharacters.replaceAll("  ", "-");
+          let finalString: any = result.replaceAll(" ", "-");
+          url = `${entity.dm_directoryChildren[0].id}-${finalString}.html`;
+          return (
+            <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
+              <Link
+                key={entity.slug}
+                href={slug + "/" + entity.slug + url}
+                className="text-blue hover:text-red"
+                rel="noopener noreferrer"
+                eventName={`LocationName`}
+              >
+                {entity.name} ({entity.dm_baseEntityCount})
+              </Link>
+            </div>
+          );
         }
+      } else {
+        return (
+          <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
+            <Link
+              key={entity.slug}
+              href={slug + "/" + entity.slug + ".html"}
+              className="text-blue hover:text-red"
+              rel="noopener noreferrer"
+              eventName={`name`}
+            >
+              {entity.name} ({entity.dm_baseEntityCount})
+            </Link>
+          </div>
+        );
       }
-
-      return (
-        <li className=" storelocation-category">
-          <a key={entity.slug} href={stagingBaseurl + detlslug}>
-            {entity.name} ({entity.dm_baseEntityCount})
-          </a>
-        </li>
-      );
-    })
-  : null;
+    });
+  let templateData = { document: document };
+  let breadcrumbScheme: any = [];
+  let currentIndex: any = 0;
+  dm_directoryParents &&
+    dm_directoryParents?.map((i: any, index: any) => {
+      currentIndex = index;
+      if (index != 0) {
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id": `${stagingBaseurl}${i.slug}.html`,
+            name: i.name,
+          },
+        });
+      }
+    });
+  breadcrumbScheme.push({
+    "@type": "ListItem",
+    position: currentIndex + 1,
+    item: {
+      "@id": `${stagingBaseurl}${
+        dm_directoryParents[1].slug
+      }/${document.slug.toString()}.html`,
+      name: document.name,
+    },
+  });
 
   // let bannerimage = c_banner_image && c_banner_image.image.url;
   return (
