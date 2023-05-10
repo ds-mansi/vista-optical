@@ -57,6 +57,7 @@ import MgmTimber from "../components/locationDetail/MgmTimber";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/layouts/header";
 import Explore from "../components/locationDetail/explore";
+import NearByLocation from "../components/locationDetail/Nearby";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -274,22 +275,29 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     ],
   };
 };
+// type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
+// export const transformProps: TransformProps<ExternalApiData> = async (
+//   data: any
+// ) => {
+
+//   var location = `${data.document.yextDisplayCoordinate ? data.document.yextDisplayCoordinate.latitude : data.document.displayCoordinate.latitude},${data.document.yextDisplayCoordinate ? data.document.yextDisplayCoordinate.longitude : data.document.displayCoordinate.longitude}`;
+
+//     const url = `${AnswerExperienceConfig.endpoints.verticalSearch}?experienceKey=${AnswerExperienceConfig.experienceKey}&api_key=${AnswerExperienceConfig.apiKey}&v=20220511&version=${AnswerExperienceConfig.experienceVersion}&locale=${AnswerExperienceConfig.locale}&location=${location}&locationRadius=${AnswerExperienceConfig.locationRadius}&verticalKey=${AnswerExperienceConfig.verticalKey}&limit=4&retrieveFacets=true&skipSpellCheck=false&sessionTrackingEnabled=true&source=STANDARD`;
+//  console.log(url)
+//   const externalApiData = (await fetch(url).then((res: any) =>
+//     res.json()
+
+//   )) as nearByLocation;
+//   return { ...data, externalApiData };
+// };
+
+
+
 type ExternalApiData = TemplateProps & { externalApiData: nearByLocation };
 export const transformProps: TransformProps<ExternalApiData> = async (
   data: any
 ) => {
-  var location = `${
-    data.document.yextDisplayCoordinate
-      ? data.document.yextDisplayCoordinate.latitude
-      : data.document.displayCoordinate.latitude
-  },${
-    data.document.yextDisplayCoordinate
-      ? data.document.yextDisplayCoordinate.longitude
-      : data.document.displayCoordinate.longitude
-  }`;
-
-  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=us&api_key=14f1b4836832e5b073458d559e86eb4d&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
-  // console.log(url);
+  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query?locationRadius=1600000&experienceKey=${AnswerExperienceConfig.experienceKey}&api_key=${AnswerExperienceConfig.apiKey}&v=20220511&version=STAGING&locale=${AnswerExperienceConfig.locale}&input=&location=${data.document.yextDisplayCoordinate.latitude},${data.document.yextDisplayCoordinate.longitude}&verticalKey=locations&limit=4&retrieveFacets=true&skipSpellCheck=false&session_id=9107c465-4f13-489e-a435-87754c56c5c2&sessionTrackingEnabled=true&sortBys=[]&source=STANDARD`;
   const externalApiData = (await fetch(url).then((res: any) =>
     res.json()
   )) as nearByLocation;
@@ -299,6 +307,7 @@ export const transformProps: TransformProps<ExternalApiData> = async (
 type ExternalApiRenderData = TemplateRenderProps & {
   externalApiData: nearByLocation;
 };
+
 
 const Location: Template<ExternalApiRenderData> = ({
   relativePrefixToRoot,
@@ -332,7 +341,7 @@ const Location: Template<ExternalApiRenderData> = ({
     c_category,
     c_categoryName,
   } = document;
-
+console.log(externalApiData,"externalApiData")
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
   let breadcrumbScheme = [];
@@ -664,19 +673,27 @@ const Location: Template<ExternalApiRenderData> = ({
             <></>
           )}
           {/* faq end */}
+          {externalApiData?.response?.results?.length > 0 ? (
           <div className="nearby-sec">
             <div className="container">
               <div className="sec-title">
                 <h2 className="">{StaticData.NearStoretext}</h2>
               </div>
               <div className="nearby-sec-inner">
-                {yextDisplayCoordinate ||
+                {/* {yextDisplayCoordinate ||
                 cityCoordinate ||
                 displayCoordinate ? (
                   <Nearby externalApiData={externalApiData} />
-                ) : (
+              ) : (
                   ""
-                )}
+                )}  */}
+                  <NearByLocation
+                prop={externalApiData}
+                parents={dm_directoryParents}
+                baseUrl={relativePrefixToRoot}
+                coords={yextDisplayCoordinate}
+                slug={slug}
+              />
               </div>
             </div>
             {/* <button className="view-more-btn"> */}
@@ -685,6 +702,10 @@ const Location: Template<ExternalApiRenderData> = ({
             </a>
             {/* </button> */}
           </div>
+           ) : (
+            ""
+          )}
+
           {/* explore section start */}
           <Explore prop={c_exploreSection} />
           {/* explore section end */}

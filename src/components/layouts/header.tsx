@@ -50,7 +50,7 @@ const Header = (props: any) => {
           justifyContent: "space-between",
           paddingRight: "40px",
         }}
-      ><a href="#">
+      ><a href="/index.html">
         <img
           src={props?.logo?.url}
           style={{
