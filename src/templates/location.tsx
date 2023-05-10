@@ -288,7 +288,7 @@ export const transformProps: TransformProps<ExternalApiData> = async (
       : data.document.displayCoordinate.longitude
   }`;
 
-  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=uk&api_key=93ed4eb95d481501ecc17410efa52034&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
+  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=us&api_key=14f1b4836832e5b073458d559e86eb4d&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
   // console.log(url);
   const externalApiData = (await fetch(url).then((res: any) =>
     res.json()

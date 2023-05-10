@@ -57,14 +57,12 @@ export default function Nearby(props: any) {
         let url = "";
         // console.log(location.slug,"id")
         var name: any = location.name?.toLowerCase();
-        var mainPhone: any = location?.mainPhone;
-        var region: any = location.address.region
-          ?.toLowerCase()
-          .replaceAll(" ", "-");
+        var mainPhone: any = location.mainPhone;
         var country: any = location.address.countryCode?.toLowerCase();
+        var region: any = location.address.region?.toLowerCase().replaceAll(" ", "-");
         var initialregion: any = region.toString();
         var finalregion: any = initialregion.replaceAll(" ", "-");
-        var city: any = location.address.city?.toLowerCase();
+        var city: any = location.address.city?.toLowerCase()?.replaceAll(" ", "-");
         var initialrcity: any = city.toString();
         var finalcity: any = initialrcity.replaceAll(" ", "-");
         var string: any = name.toString();
