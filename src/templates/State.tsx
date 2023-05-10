@@ -266,8 +266,8 @@ const region: Template<TemplateRenderProps> = ({
 
       url = document.slug.toString();
       let url1: any = "";
-      url1 = url.replace(/(\b\S.+\b)(?=.*\1)/g, "").trim();
-      if (entity.dm_baseEntityCount == 1) {
+      url1 = url?.replace(/(\b\S.+\b)(?=.*\1)/g, "")?.trim();
+      if (entity?.dm_baseEntityCount == 1) {
         if (
           entity.dm_directoryChildren &&
           entity.dm_directoryChildren[0].slug
