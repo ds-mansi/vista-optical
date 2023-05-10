@@ -493,7 +493,7 @@ function UnwrappedGoogleMaps({
     const region: any = result.rawData.address.region?.toLowerCase();
     const initialregion: any = region.toString();
     const finalregion: any = initialregion.replaceAll(" ", "-");
-    const city: any = result.rawData.address.city?.toLowerCase();
+    const city: any = result.rawData.address.city?.toLowerCase()?.replaceAll(" ", "-");
     const initialrcity: any = city.toString();
     const finalcity: any = initialrcity.replaceAll(" ", "-");
     const string1: any = name.toString();
