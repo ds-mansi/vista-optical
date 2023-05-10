@@ -72,8 +72,8 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   // console.log(document.slug, " document.slug");
   let url = "";
   document?.dm_directoryParents?.map((i: any) => {
-    if (i.meta.entityType.id == "ce_country") {
-      url += i.slug + "/";
+    if (i?.meta?.entityType?.id == "ce_country") {
+      url += i?.slug + "/";
     }
   });
   url += document.slug.toString();
@@ -92,7 +92,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 }): HeadConfig => {
   var canonical = "";
   document?.dm_directoryParents?.map((entity: any) => {
-    canonical = entity.slug.toLowerCase();
+    canonical = entity?.slug?.toLowerCase();
   });
 
   return {
@@ -257,14 +257,14 @@ const region: Template<TemplateRenderProps> = ({
 
   let slugString = "/";
   document.dm_directoryParents?.forEach((e: any) => {
-    slugString = e.slug + "/";
+    slugString = e?.slug + "/";
   });
   const childrenDivs =
     dm_directoryChildren &&
     dm_directoryChildren?.map((entity: any) => {
       let url: any = "";
 
-      url = document.slug.toString();
+      url = document?.slug?.toString();
       let url1: any = "";
       url1 = url?.replace(/(\b\S.+\b)(?=.*\1)/g, "")?.trim();
       if (entity?.dm_baseEntityCount == 1) {
@@ -281,7 +281,7 @@ const region: Template<TemplateRenderProps> = ({
                   "/" +
                   entity?.slug +
                   "/" +
-                  entity?.dm_directoryChildren[0].slug +
+                  entity?.dm_directoryChildren[0]?.slug +
                   ".html"
                 }
                 //href={slug + "/" + entity.slug + ".html"}
@@ -305,8 +305,8 @@ const region: Template<TemplateRenderProps> = ({
           return (
             <div className="w-1/2 storelocation-category md:w-1/3 lg:w-1/4 px-4">
               <Link
-                key={entity.slug}
-                href={slug + "/" + entity.slug + url}
+                key={entity?.slug}
+                href={slug + "/" + entity?.slug + url}
                 className="text-blue hover:text-red"
                 rel="noopener noreferrer"
                 eventName={`LocationName`}
